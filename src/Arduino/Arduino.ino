@@ -11,6 +11,7 @@
 #include "hid/Adafruit_USBD_HID.h"
 
 #define DISPLAY_DEBUG // Showing the debugging screen
+#define TEST_MODE
 
 // Display
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
@@ -87,7 +88,6 @@ static const unsigned char LOGO[] PROGMEM = { // Logo img
   0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff
 };
 
-
 // USB HID
 Adafruit_USBD_HID usb_hid;
 
@@ -150,17 +150,21 @@ char G_MLSW_KEY_CODES_LAYER2[] = {
 
 // MagLevSwitch Thresholds
 float G_ACTUATION_DEPTH[] = {
-  0.5, 
-  0.5, 0.5, 0.5
-};
-float G_RELEASE_DEPTH[] = {
   0.8, 
   0.8, 0.8, 0.8
+};
+float G_RELEASE_DEPTH[] = {
+  0.2, 
+  0.2, 0.2, 0.2
 };
 
 
 // Output char codes array
 uint8_t outCodes[6] = {};
+
+// Current oled state
+int8_t G_OLEDSTATE = -1;
+
 
 MaglevSwitchBoard board 
   = MaglevSwitchBoard(G_SW_KEY_CODES_LAYER1, G_SW_KEY_CODES_LAYER2, 
@@ -173,7 +177,9 @@ void setup() {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   showLogo();
   
+  #if !defined(TEST_MODE)
   hid_init();
+  #endif
   attachInterrupt(digitalPinToInterrupt(ENCODER_A), encoderInterrupt, RISING);
 
   sem_init(&semaphoere, 1, 1);
@@ -187,7 +193,10 @@ void loop() {
 
   uint8_t cnt         = 0;
   uint8_t codes[6]    = {0};
+
   uint16_t values[4]  = {0};
+  float normalizedValue[4] = {0.0};
+
   bool pressed        = false;
   bool pressedPrev    = false;
 
@@ -211,15 +220,22 @@ void loop() {
 
     sem_release(&semaphoere);
 
+    #if !defined(TEST_MODE)
     hid_task(codes, cnt);
+    #endif
     
+    for(int i = 0; i < 4; i++){
+      normalizedValue[i] = (float)(values[i] - MLSW_LOWER_LIMIT) / (float)MLSW_RANGE;
+    }
 
     if(pressed & !pressedPrev){
-      updateOled(codes, cnt, values, encoderConditions.position, true);
+      G_OLEDSTATE++;
+      if(G_OLEDSTATE > 8){
+        G_OLEDSTATE = -1;
+      }
     }
-    else{
-      updateOled(codes, cnt, values, encoderConditions.position, false);
-    }
+
+    updateOled(codes, cnt, normalizedValue, encoderConditions.position, G_OLEDSTATE);
   }
 }
 
@@ -240,17 +256,15 @@ void pollingLoop(void){
 }
 
 
-void updateOled(uint8_t codes[6], uint8_t cnt, uint16_t values[4], double position, bool encoderPressed){
-  static bool oledIsEnable = false;
+void updateOled(uint8_t codes[6], uint8_t cnt, float values[4], double position, int8_t oledState){
+  static int8_t prevOledState = -1;
 
-  if(encoderPressed){
-    oledIsEnable = !oledIsEnable;
-    if(!oledIsEnable){
+  if(oledState == -1){
+    if(prevOledState != -1){
       showLogo();
     }
   }
-
-  if(oledIsEnable){
+  else{
     display.clearDisplay();
 
     #ifdef DISPLAY_DEBUG
@@ -263,20 +277,31 @@ void updateOled(uint8_t codes[6], uint8_t cnt, uint16_t values[4], double positi
       display.setCursor(0, (20 + 10 * i));
       display.println(values[i]);
     }
-    display.setCursor(80, 20);
+    
+    for(int i = 0; i < 4; i++){
+      display.setCursor(30, (20 + 10 * i));
+      display.println(G_ACTUATION_DEPTH[i]);
+    }
+    
+    for(int i = 0; i < 4; i++){
+      display.setCursor(60, (20 + 10 * i));
+      display.println(G_RELEASE_DEPTH[i]);
+    }
+    
+    display.setCursor(100, 20);
     display.println(position);
 
-    for(int i = 0; i < 6; i++){
-      display.setCursor((40 + 10 * i), 40);
-      display.println((char)codes[i]);
-    }
-
-    display.setCursor(40, 50);
+    display.setCursor(100, 30);
     display.println(cnt);
+    
+    display.setCursor(100, 40);
+    display.println(oledState);
     #endif
     
     display.display();
   }
+
+  prevOledState = oledState;
 }
 
 void showLogo(void){
@@ -292,9 +317,11 @@ void encoderInterrupt(void){
     lastInterruptTimeUs = currentTimeUs;
     if(digitalRead(ENCODER_B) == HIGH){
         encoderConditions.pulseCount--;
+        increaseThreshold(G_OLEDSTATE, false);
     }
     else{
         encoderConditions.pulseCount++;
+        increaseThreshold(G_OLEDSTATE, true);
     }
     
     if(encoderConditions.pulseCount >= 24){
@@ -304,6 +331,32 @@ void encoderInterrupt(void){
       encoderConditions.pulseCount = 23;
     }
     encoderConditions.position = (double)(encoderConditions.pulseCount) / 23.0;
+  }
+}
+
+void increaseThreshold(uint8_t state, bool increasing){
+  uint8_t index = (state - 1) >> 1;
+  uint8_t offset = (state - 1) & 1;
+  
+  float incremental = 0;
+  if(increasing){
+    incremental = 0.05;
+  }
+  else{
+    incremental = -0.05;
+  }
+
+  if(offset == 0) {
+    float result = G_ACTUATION_DEPTH[index] + incremental;
+    if(result < 1.0 && result >= G_RELEASE_DEPTH[index]){
+      G_ACTUATION_DEPTH[index] = result;
+    }
+  }
+  else{
+    float result = G_RELEASE_DEPTH[index] + incremental;
+    if(result <= G_ACTUATION_DEPTH[index] && result >= 0.05){
+      G_RELEASE_DEPTH[index] = result;
+    }
   }
 }
 
