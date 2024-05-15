@@ -9,6 +9,7 @@
 #include <Adafruit_SSD1306.h>
 #include "Adafruit_TinyUSB.h"
 #include "hid/Adafruit_USBD_HID.h"
+#include "BarGraph.h"
 
 #define DISPLAY_DEBUG // Showing the debugging screen
 #define TEST_MODE
@@ -16,6 +17,9 @@
 // Display
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
+
+#define NUM_BARS 4
+BarGraph graph(SCREEN_WIDTH, SCREEN_HEIGHT, NUM_BARS);
 
 i2c_inst_t *i2c = i2c1;
 TwoWire myWire(i2c, 2, 3);
@@ -268,34 +272,13 @@ void updateOled(uint8_t codes[6], uint8_t cnt, float values[4], double position,
     display.clearDisplay();
 
     #ifdef DISPLAY_DEBUG
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.setCursor(0, 10);
-    display.println("MagLev Switch MX!");
+    if (oledState != -1) graph.cursor = oledState;
 
-    for(int i = 0; i < 4; i++){
-      display.setCursor(0, (20 + 10 * i));
-      display.println(values[i]);
+    for (int i = 0; i < NUM_BARS; ++i) {;
+      graph.setBarValue(i,  values[i]);
+      graph.setBarThresholds(i, G_RELEASE_DEPTH[i], G_ACTUATION_DEPTH[i]);
     }
-    
-    for(int i = 0; i < 4; i++){
-      display.setCursor(30, (20 + 10 * i));
-      display.println(G_ACTUATION_DEPTH[i]);
-    }
-    
-    for(int i = 0; i < 4; i++){
-      display.setCursor(60, (20 + 10 * i));
-      display.println(G_RELEASE_DEPTH[i]);
-    }
-    
-    display.setCursor(100, 20);
-    display.println(position);
-
-    display.setCursor(100, 30);
-    display.println(cnt);
-    
-    display.setCursor(100, 40);
-    display.println(oledState);
+    graph.draw(display);
     #endif
     
     display.display();
