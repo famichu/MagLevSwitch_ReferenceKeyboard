@@ -19,12 +19,13 @@ MaglevSwitchBoard::MaglevSwitchBoard(char* swCodesLayer1, char* swCodesLayer2,
     switchGpioInit(); 
     
     for(int i = 0; i <MLSW_NUM; i++){
-      actuationDepth_[i] = MLSW_LOWER_LIMIT + 
+      actuationDepth_[i] = MLSW_UPPER_LIMIT - 
         (uint16_t)((float)MLSW_RANGE * actuationDepth[i]);
-      releaseDepth_[i]   = MLSW_LOWER_LIMIT + 
+      releaseDepth_[i]   = MLSW_UPPER_LIMIT - 
         (uint16_t)((float)MLSW_RANGE * releaseDepth[i]);
 
-      currentDepth_[i]   = 0;
+      currentDepth_[i]      = 0;
+      reActivationDepth_[i] = releaseDepth_[i];
     }
 
     rotaryEncoderInit();
@@ -115,10 +116,11 @@ bool MaglevSwitchBoard::update_(void){
   outCodesCnt_ = 0;
 
   for(int i = 0; i < MLSW_NUM; i++){
+    prevDepth_[i] = currentDepth_[i];
     adc_select_input(adc_num[i]);
     currentDepth_[i] = adc_read();
 
-    if(currentDepth_[i] < actuationDepth_[i]){
+    if(isPressed(i)){
       outCodes_[outCodesCnt_] = mlswCodes_[i];
       outCodesCnt_++;
     }
@@ -177,4 +179,83 @@ void MaglevSwitchBoard::setThresholdRate(float* actuationDepth, float* releaseDe
 void MaglevSwitchBoard::setThresholdAbsolute(uint16_t* actuationDepth, uint16_t releaseDepth){
   memcpy(&actuationDepth_, &actuationDepth, 4);
   memcpy(&releaseDepth_, &releaseDepth, 4);
+}
+
+// get the current moving direction of the switch. true: is going down.
+bool MaglevSwitchBoard::getDirection(uint16_t prev, uint16_t current){
+  if(isNegative(current, prev)){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+// get whether the switch moving direction is turned. true: turned
+bool MaglevSwitchBoard::getTurning(bool direction, bool directionPrev, int statePrev){
+  if(statePrev >= 2){
+    if(direction == false){
+      if(directionPrev == true){
+        return true;
+      }
+    }
+  }
+  
+  return false;
+}
+
+// get the state of the switch
+uint8_t MaglevSwitchBoard::getState(uint16_t current, uint16_t release_, uint16_t actuation, uint16_t disable){
+  bool isBottom = isNegative(current, release_);    // lower than the depth at which the switch was released
+  bool isActuated = isNegative(current, actuation); // lower than the actuation depth of the switch
+  bool isDisabled = isNegative(current, disable);   // lower than the ignore depth after the switch was released
+
+  if(isBottom){
+    return 3; // the switch is pressed almost fully
+  }
+  else if(isDisabled){ // the switch has just been released, and current state is ignored
+    return 1; 
+  }
+  else if(isActuated){
+    return 2; // the switch is pressed
+  }
+  else{
+    return 0; // the switch is not pressed
+  }
+}
+
+// get whether the switch is pressed based on the state of the switch
+bool MaglevSwitchBoard::isPressed(uint8_t idx){
+  bool pressed = false;
+  bool isGoingDown = getDirection(prevDepth_[idx], currentDepth_[idx]);
+  bool isTurning = getTurning(isGoingDown, directionPrev_[idx], statePrev_[idx]);
+  uint8_t state = getState(currentDepth_[idx], releaseDepth_[idx], actuationDepth_[idx], reActivationDepth_[idx]);
+
+  switch(state){
+    case 2:
+      if(isTurning == true){
+        reActivationDepth_[idx] = currentDepth_[idx] + (MLSW_RANGE * 0.2);
+      }
+    case 3:
+      pressed = true;
+      break;
+  }
+  
+  statePrev_[idx] = state;
+  directionPrev_[idx] = isGoingDown;
+
+  return pressed;
+}
+
+// Calculates whether the difference between the first and second arguments is negative.
+bool MaglevSwitchBoard::isNegative(uint16_t minuend, uint16_t subtrahend){
+  int16_t diff = minuend - subtrahend;
+  int16_t msb = diff >> 15;
+
+  if(msb == 0){
+    return false;
+  }
+  else{
+    return true;
+  }
 }
