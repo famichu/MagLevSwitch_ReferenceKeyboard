@@ -3,6 +3,9 @@
 #include "hardware/adc.h"
 #include "hardware/gpio.h"
 #include "hardware/i2c.h"
+#include "hardware/flash.h"
+#include "hardware/sync.h"
+#include "Threshold_Data.h"
 
 #ifndef MAGLEV_SWITCH_BOARD
 #define MAGLEV_SWITCH_BOARD
@@ -50,7 +53,7 @@ public:
     MaglevSwitchBoard();
     MaglevSwitchBoard(char* swCodesLayer1, char* swCodesLayer2, 
       char* mlswCodesLayer1, char* mlswCodesLayer2,  
-      float* actuationDepth, float* releaseDepth, uint8_t* outCodes);
+      ThresholdData* actuationDepth, ThresholdData* releaseDepth, uint8_t* outCodes);
     bool updateState(void);
     uint16_t currentMaglevValue(uint8_t);
     uint8_t outCodesCnt(void);
@@ -59,9 +62,8 @@ public:
     bool switchGpioInit(void);
     bool rotaryEncoderInit(void);
     bool i2cInit(void);
-
-    void setThresholdRate(float* actuationDepth, float* releaseDepth);
-    void setThresholdAbsolute(uint16_t* actuationDepth, uint16_t releaseDepth);
+    void saveSettings(void);
+    void setThreshold(uint16_t* actuationDepth, uint16_t* releaseDepth);
 
 private:
     char swPins_[SW_NUM];
@@ -79,8 +81,8 @@ private:
     int fnSw_;
     int swNum_;
 
-    uint16_t actuationDepth_[4];
-    uint16_t releaseDepth_[4];
+    ThresholdData* actuationDepth_;
+    ThresholdData* releaseDepth_;
     uint16_t currentDepth_[4];
     uint16_t prevDepth_[4];
     uint16_t reActivationDepth_[4];
@@ -97,5 +99,7 @@ private:
     bool getDirection(uint16_t prev, uint16_t current);
     bool getTurning(bool direction, bool directionPrev, int modePrev);
     uint8_t getState(uint16_t current, uint16_t release_, uint16_t actuation, uint16_t disable);
+
+    void loadSettings(void);
 };
 #endif

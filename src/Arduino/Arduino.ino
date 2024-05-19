@@ -11,8 +11,8 @@
 #include "hid/Adafruit_USBD_HID.h"
 #include "BarGraph.h"
 
-#define DISPLAY_DEBUG // Showing the debugging screen
-#define TEST_MODE
+// #define DISPLAY_DEBUG // Showing the debugging screen
+// #define TEST_MODE
 
 // Display
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
@@ -151,17 +151,27 @@ char G_MLSW_KEY_CODES_LAYER2[] = {
   HID_KEY_A,  HID_KEY_S, HID_KEY_D
 };
 
-
 // MagLevSwitch Thresholds
-float G_ACTUATION_DEPTH[] = {
-  0.8, 
-  0.8, 0.8, 0.8
-};
-float G_RELEASE_DEPTH[] = {
-  0.2, 
-  0.2, 0.2, 0.2
+
+// prototype
+void saveSettings();
+void loadSettings();
+float calcNormalizedValue(uint16_t);
+float calcAbsoluteValue(uint16_t);
+
+ThresholdData G_ACTUATION_DEPTH[] = {
+  ThresholdData((uint16_t)2750, MLSW_LOWER_LIMIT, MLSW_RANGE), 
+  ThresholdData((uint16_t)2750, MLSW_LOWER_LIMIT, MLSW_RANGE), 
+  ThresholdData((uint16_t)2750, MLSW_LOWER_LIMIT, MLSW_RANGE), 
+  ThresholdData((uint16_t)2750, MLSW_LOWER_LIMIT, MLSW_RANGE)
 };
 
+ThresholdData G_RELEASE_DEPTH[] = {
+  ThresholdData((uint16_t)1490, MLSW_LOWER_LIMIT, MLSW_RANGE), 
+  ThresholdData((uint16_t)1490, MLSW_LOWER_LIMIT, MLSW_RANGE), 
+  ThresholdData((uint16_t)1490, MLSW_LOWER_LIMIT, MLSW_RANGE), 
+  ThresholdData((uint16_t)1490, MLSW_LOWER_LIMIT, MLSW_RANGE)
+};
 
 // Output char codes array
 uint8_t outCodes[6] = {};
@@ -175,12 +185,24 @@ MaglevSwitchBoard board
       G_MLSW_KEY_CODES_LAYER1, G_MLSW_KEY_CODES_LAYER2,  
       G_ACTUATION_DEPTH, G_RELEASE_DEPTH, outCodes);
 
+uint8_t G_LOADED = 0;
+
 
 void setup() {
   i2c_init(i2c, 400 * 1000);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   showLogo();
-  
+
+  loadSettings();
+
+  // fill the thresholds with the default value if loaded value is blank
+  if(G_ACTUATION_DEPTH[0].getNormalized() == 1.00 || G_ACTUATION_DEPTH[0].getNormalized() == 0.0){
+    for(int i = 0; i < MLSW_NUM; i++){
+      G_ACTUATION_DEPTH[i].setAbsolute(2750);
+      G_RELEASE_DEPTH[i].setAbsolute(1490);
+    }
+  }
+
   #if !defined(TEST_MODE)
   hid_init();
   #endif
@@ -203,6 +225,8 @@ void loop() {
 
   bool pressed        = false;
   bool pressedPrev    = false;
+
+  static uint8_t oledstatePrev = 0;
 
   while(1){
     pressedPrev   = pressed;
@@ -229,14 +253,23 @@ void loop() {
     #endif
     
     for(int i = 0; i < 4; i++){
-      normalizedValue[i] = (float)(values[i] - MLSW_LOWER_LIMIT) / (float)MLSW_RANGE;
+      normalizedValue[i] = calcNormalizedValue(values[i]);
     }
 
     if(pressed & !pressedPrev){
       G_OLEDSTATE++;
+
+      if(G_OLEDSTATE == 9){
+          sem_acquire_blocking(&semaphoere);
+          saveSettings();
+          sem_release(&semaphoere);
+          break;
+      }
+
       if(G_OLEDSTATE > 8){
         G_OLEDSTATE = -1;
       }
+      oledstatePrev = G_OLEDSTATE;
     }
 
     updateOled(codes, cnt, normalizedValue, encoderConditions.position, G_OLEDSTATE);
@@ -279,24 +312,24 @@ void updateOled(uint8_t codes[6], uint8_t cnt, float values[4], double position,
 
     for(int i = 0; i < 4; i++){
       display.setCursor(0, (20 + 10 * i));
-      display.println(values[i]);
+      display.println(calcAbsoluteValue(values[i]));
     }
-    
+
     for(int i = 0; i < 4; i++){
       display.setCursor(30, (20 + 10 * i));
-      display.println(G_ACTUATION_DEPTH[i]);
+      display.println(G_ACTUATION_DEPTH[i].getAbsoluted());
     }
     
     for(int i = 0; i < 4; i++){
       display.setCursor(60, (20 + 10 * i));
-      display.println(G_RELEASE_DEPTH[i]);
+      display.println(G_RELEASE_DEPTH[i].getAbsoluted());
     }
     
     display.setCursor(100, 20);
     display.println(position);
 
     display.setCursor(100, 30);
-    display.println(cnt);
+    display.println(G_LOADED);
     
     display.setCursor(100, 40);
     display.println(oledState);
@@ -304,7 +337,9 @@ void updateOled(uint8_t codes[6], uint8_t cnt, float values[4], double position,
     graph.cursor = oledState;
     for (int i = 0; i < NUM_BARS; ++i) {;
       graph.setBarValue(i,  values[i]);
-      graph.setBarThresholds(i, G_RELEASE_DEPTH[i], G_ACTUATION_DEPTH[i]);
+      graph.setBarThresholds(i, 
+        G_RELEASE_DEPTH[i].getNormalized(),
+        G_ACTUATION_DEPTH[i].getNormalized());
     }
     graph.draw(display);
     #endif
@@ -357,15 +392,15 @@ void increaseThreshold(uint8_t state, bool increasing){
   }
 
   if(offset == 0) {
-    float result = G_ACTUATION_DEPTH[index] + incremental;
-    if(result < 1.0 && result >= G_RELEASE_DEPTH[index]){
-      G_ACTUATION_DEPTH[index] = result;
+    float result = G_ACTUATION_DEPTH[index].getNormalized() + incremental;
+    if(result < 1.0 && result >= G_RELEASE_DEPTH[index].getNormalized()){
+      G_ACTUATION_DEPTH[index].setNormalize(result);
     }
   }
   else{
-    float result = G_RELEASE_DEPTH[index] + incremental;
-    if(result <= G_ACTUATION_DEPTH[index] && result >= 0.05){
-      G_RELEASE_DEPTH[index] = result;
+    float result = G_RELEASE_DEPTH[index].getNormalized() + incremental;
+    if(result <= G_ACTUATION_DEPTH[index].getNormalized() && result >= 0.05){
+      G_RELEASE_DEPTH[index].setNormalize(result);
     }
   }
 }
@@ -402,5 +437,68 @@ void hid_task(uint8_t codes[6], uint8_t cnt){
       keyPressedPreviously = false;
       usb_hid.keyboardRelease(0);
     }
+  }
+}
+
+float calcNormalizedValue(uint16_t value){
+  float result = float(value - MLSW_LOWER_LIMIT) / (float)MLSW_RANGE;
+  if(result > 1.00){
+    result = 1.00;
+  }
+  else if(result < 0){
+    result = 0.0;
+  }
+  return result;
+}
+
+uint16_t calcAbsoluteValue(float value){
+  return uint16_t(value * MLSW_RANGE) + MLSW_LOWER_LIMIT;
+}
+
+void saveSettings(){
+  const uint32_t FLASH_TARGET_OFFSET = 0x1F0000; // W25Q16JVの最終ブロック(Block31)のセクタ0の先頭アドレス = 0x1F0000
+  uint8_t write_data[FLASH_PAGE_SIZE]; // // W25Q16JVの書き込み最小単位 = FLASH_PAGE_SIZE(256Byte)
+  
+  uint32_t ints = save_and_disable_interrupts();
+
+  uint8_t data_cnt = 0;
+  for(int i = 0; i < MLSW_NUM; i++){
+    uint8_t* bytes = G_ACTUATION_DEPTH[i].getAbsolutedBytes();
+    for(int j = 0; j < 2; j++){
+      write_data[data_cnt] = bytes[j];
+      data_cnt++;
+    }
+    
+    bytes = G_RELEASE_DEPTH[i].getAbsolutedBytes();
+    for(int j = 0; j < 2; j++){
+       write_data[data_cnt] = bytes[j];
+      data_cnt++;
+    }
+  }
+  
+  flash_range_erase(FLASH_TARGET_OFFSET, FLASH_SECTOR_SIZE);
+  flash_range_program(FLASH_TARGET_OFFSET, write_data, FLASH_PAGE_SIZE);
+  restore_interrupts(ints);
+}
+
+void loadSettings(){
+  const uint32_t FLASH_TARGET_OFFSET = 0x1F0000;
+  const uint8_t *flash_target_contents = (const uint8_t *) (XIP_BASE + FLASH_TARGET_OFFSET);
+  G_LOADED = flash_target_contents[0];
+
+  uint8_t data_cnt = 0;
+  for(int i = 0; i < MLSW_NUM; i++){
+    uint8_t bytes[2];
+    for(int j = 0; j < 2; j++){
+      bytes[j] = flash_target_contents[data_cnt];
+      data_cnt++;
+    }
+    G_ACTUATION_DEPTH[i].setAbsoluteBytes(bytes[0], bytes[1]);
+    
+    for(int j = 0; j < 2; j++){
+      bytes[j] = flash_target_contents[data_cnt];
+      data_cnt++;
+    }
+    G_RELEASE_DEPTH[i].setAbsoluteBytes(bytes[0], bytes[1]);
   }
 }

@@ -5,7 +5,7 @@ MaglevSwitchBoard::MaglevSwitchBoard(){};
 
 MaglevSwitchBoard::MaglevSwitchBoard(char* swCodesLayer1, char* swCodesLayer2, 
   char* mlswCodesLayer1, char* mlswCodesLayer2,  
-  float* actuationDepth, float* releaseDepth, uint8_t* outCodes){
+  ThresholdData* actuationDepth, ThresholdData* releaseDepth, uint8_t* outCodes){
 
     memcpy(&swCodesLayer1_, &swCodesLayer1, 21);
     memcpy(&swCodesLayer2_, &swCodesLayer2, 21);
@@ -17,17 +17,15 @@ MaglevSwitchBoard::MaglevSwitchBoard(char* swCodesLayer1, char* swCodesLayer2,
     outCodes_ = outCodes;
 
     switchGpioInit(); 
-    
+
+    actuationDepth_ = actuationDepth;
+    releaseDepth_ = releaseDepth;
+
     for(int i = 0; i <MLSW_NUM; i++){
-      actuationDepth_[i] = MLSW_UPPER_LIMIT - 
-        (uint16_t)((float)MLSW_RANGE * actuationDepth[i]);
-      releaseDepth_[i]   = MLSW_UPPER_LIMIT - 
-        (uint16_t)((float)MLSW_RANGE * releaseDepth[i]);
-
       currentDepth_[i]      = 0;
-      reActivationDepth_[i] = releaseDepth_[i];
+      reActivationDepth_[i] = releaseDepth_[i].getAbsoluted();
     }
-
+    
     rotaryEncoderInit();
     i2cInit();
 
@@ -165,22 +163,6 @@ bool MaglevSwitchBoard::encoderPressed(){
   return encoderSwPressed_;
 }
 
-// set thresholds with float value(0.0 - 1.0)
-void MaglevSwitchBoard::setThresholdRate(float* actuationDepth, float* releaseDepth){
-  for(int i = 0; i <MLSW_NUM; i++){
-    actuationDepth_[i] = MLSW_LOWER_LIMIT + 
-      (uint16_t)((float)MLSW_RANGE * actuationDepth[i]);
-    releaseDepth_[i]   = MLSW_LOWER_LIMIT + 
-      (uint16_t)((float)MLSW_RANGE * releaseDepth[i]);
-  }
-}
-
-// set thresholds with integer value as absolute value
-void MaglevSwitchBoard::setThresholdAbsolute(uint16_t* actuationDepth, uint16_t releaseDepth){
-  memcpy(&actuationDepth_, &actuationDepth, 4);
-  memcpy(&releaseDepth_, &releaseDepth, 4);
-}
-
 // get the current moving direction of the switch. true: is going down.
 bool MaglevSwitchBoard::getDirection(uint16_t prev, uint16_t current){
   if(isNegative(current, prev)){
@@ -229,7 +211,10 @@ bool MaglevSwitchBoard::isPressed(uint8_t idx){
   bool pressed = false;
   bool isGoingDown = getDirection(prevDepth_[idx], currentDepth_[idx]);
   bool isTurning = getTurning(isGoingDown, directionPrev_[idx], statePrev_[idx]);
-  uint8_t state = getState(currentDepth_[idx], releaseDepth_[idx], actuationDepth_[idx], reActivationDepth_[idx]);
+  uint8_t state = getState(currentDepth_[idx], 
+    releaseDepth_[idx].getAbsoluted(), 
+    actuationDepth_[idx].getAbsoluted(), 
+    reActivationDepth_[idx]);
 
   switch(state){
     case 2:
