@@ -85,9 +85,8 @@ private:
     ThresholdData* releaseDepth_;
     uint16_t currentDepth_[4];
     uint16_t prevDepth_[4];
-    uint16_t reActivationDepth_[4];
     bool statePrev_[4];
-    bool directionPrev_[4];
+    bool isGoingDownPrev_[4];
 
     bool (MaglevSwitchBoard::*updateFunc)(void);
 
@@ -97,8 +96,8 @@ private:
     bool isPressed(uint8_t idx);
     bool isNegative(uint16_t minuend,uint16_t subtrahend);
     bool getDirection(uint16_t prev, uint16_t current);
-    bool getTurning(bool direction, bool directionPrev, int modePrev);
-    uint8_t getState(uint16_t current, uint16_t release_, uint16_t actuation, uint16_t disable);
+    uint8_t getTurning(bool direction, bool directionPrev, uint8_t modePrev);
+    uint8_t getRange(uint16_t current, uint16_t release_, uint16_t actuation);
 
     void loadSettings(void);
 };
