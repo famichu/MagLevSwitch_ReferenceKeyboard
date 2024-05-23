@@ -383,24 +383,36 @@ void increaseThreshold(uint8_t state, bool increasing){
   uint8_t index = (state - 1) >> 1;
   uint8_t offset = (state - 1) & 1;
   
-  float incremental = 0;
+  uint16_t incremental = 0;
   if(increasing){
-    incremental = 0.05;
+    incremental = MLSW_RANGE / 20;
   }
   else{
-    incremental = -0.05;
+    incremental = -MLSW_RANGE / 20;
   }
 
   if(offset == 0) {
-    float result = G_ACTUATION_DEPTH[index].getNormalized() + incremental;
-    if(result < 1.0 && result >= G_RELEASE_DEPTH[index].getNormalized()){
-      G_ACTUATION_DEPTH[index].setNormalize(result);
+    uint16_t result = G_ACTUATION_DEPTH[index].getAbsoluted() + incremental;
+    if(result < (MLSW_UPPER_LIMIT - 1) && result >= G_RELEASE_DEPTH[index].getAbsoluted()){
+      G_ACTUATION_DEPTH[index].setAbsolute(result);
+    }
+    else if(result >= (MLSW_UPPER_LIMIT - 1)){
+      G_ACTUATION_DEPTH[index].setAbsolute(MLSW_UPPER_LIMIT - 2);
+    }
+    else if(result < G_RELEASE_DEPTH[index].getAbsoluted()){
+      G_ACTUATION_DEPTH[index].setAbsolute(G_RELEASE_DEPTH[index].getAbsoluted());
     }
   }
   else{
-    float result = G_RELEASE_DEPTH[index].getNormalized() + incremental;
-    if(result <= G_ACTUATION_DEPTH[index].getNormalized() && result >= 0.05){
-      G_RELEASE_DEPTH[index].setNormalize(result);
+    uint16_t result = G_RELEASE_DEPTH[index].getAbsoluted() + incremental;
+    if(result <= G_ACTUATION_DEPTH[index].getAbsoluted() && result > (MLSW_LOWER_LIMIT + 50)){
+      G_RELEASE_DEPTH[index].setAbsolute(result);
+    }
+    else if(result > G_ACTUATION_DEPTH[index].getAbsoluted()){
+      G_RELEASE_DEPTH[index].setAbsolute(G_ACTUATION_DEPTH[index].getAbsoluted());
+    }
+    else if(result <= (MLSW_LOWER_LIMIT + 50)){
+      G_RELEASE_DEPTH[index].setAbsolute(MLSW_LOWER_LIMIT + 51);
     }
   }
 }
