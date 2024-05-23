@@ -23,6 +23,7 @@ MaglevSwitchBoard::MaglevSwitchBoard(char* swCodesLayer1, char* swCodesLayer2,
 
     for(int i = 0; i <MLSW_NUM; i++){
       currentDepth_[i]      = 0;
+      pressedPrev_[i]       = false;
     }
     
     rotaryEncoderInit();
@@ -188,6 +189,18 @@ uint8_t MaglevSwitchBoard::getTurning(bool isGoingDown, bool isGoingDownPrev, ui
   return 0;
 }
 
+bool MaglevSwitchBoard::getStaying(uint16_t prev, uint16_t current, uint8_t range, uint8_t rangePrev){
+  if(rangePrev != range){
+    return false;
+  }
+  else if((isNegative(current, prev - 3)) || (isNegative(current - 3, prev))){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
 // get the state of the switch
 uint8_t MaglevSwitchBoard::getRange(uint16_t current, uint16_t release_, uint16_t actuation){
   bool isBottom = isNegative(current, release_);    // lower than the depth at which the switch was released
@@ -208,14 +221,20 @@ uint8_t MaglevSwitchBoard::getRange(uint16_t current, uint16_t release_, uint16_
 bool MaglevSwitchBoard::isPressed(uint8_t idx){
   bool pressed = false;
   bool isGoingDown = getDirection(prevDepth_[idx], currentDepth_[idx]);
-  uint8_t isTurning = getTurning(isGoingDown, isGoingDownPrev_[idx], statePrev_[idx]);
-  uint8_t state = getRange(currentDepth_[idx], 
+  uint8_t range = getRange(currentDepth_[idx], 
     releaseDepth_[idx].getAbsoluted(), 
     actuationDepth_[idx].getAbsoluted());
 
-  switch(state){
+  bool isStaying = getStaying(prevDepth_[idx], currentDepth_[idx], range, rangePrev_[idx]);
+  uint8_t isTurning = 0;
+  if(isStaying == false){
+    isTurning = getTurning(isGoingDown, isGoingDownPrev_[idx], rangePrev_[idx]);
+  }
+
+  switch(range){
     case 1:
       switch(isTurning){
+        case 0:
         case 1:
           pressed = true;
           break;
@@ -229,8 +248,9 @@ bool MaglevSwitchBoard::isPressed(uint8_t idx){
       break;
   }
   
-  statePrev_[idx] = state;
+  rangePrev_[idx] = range;
   isGoingDownPrev_[idx] = isGoingDown;
+  pressedPrev_[idx] = pressed;
 
   return pressed;
 }
