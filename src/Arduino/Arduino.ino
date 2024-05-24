@@ -393,11 +393,11 @@ void increaseThreshold(uint8_t state, bool increasing){
 
   if(offset == 0) {
     uint16_t result = G_ACTUATION_DEPTH[index].getAbsoluted() + incremental;
-    if(result < (MLSW_UPPER_LIMIT - 1) && result >= G_RELEASE_DEPTH[index].getAbsoluted()){
+    if(result < (MLSW_UPPER_LIMIT - 2) && result >= G_RELEASE_DEPTH[index].getAbsoluted()){
       G_ACTUATION_DEPTH[index].setAbsolute(result);
     }
-    else if(result >= (MLSW_UPPER_LIMIT - 1)){
-      G_ACTUATION_DEPTH[index].setAbsolute(MLSW_UPPER_LIMIT - 2);
+    else if(result >= (MLSW_UPPER_LIMIT - 2)){
+      G_ACTUATION_DEPTH[index].setAbsolute(MLSW_UPPER_LIMIT - 3);
     }
     else if(result < G_RELEASE_DEPTH[index].getAbsoluted()){
       G_ACTUATION_DEPTH[index].setAbsolute(G_RELEASE_DEPTH[index].getAbsoluted());
