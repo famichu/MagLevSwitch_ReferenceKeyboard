@@ -1608,7 +1608,7 @@
   (junction (at 201.93 142.24) (diameter 0) (color 0 0 0 0)
     (uuid 100166d0-f22d-4144-8d7c-45e1c591947c)
   )
-  (junction (at 104.14 139.7) (diameter 0) (color 0 0 0 0)
+  (junction (at 109.22 133.35) (diameter 0) (color 0 0 0 0)
     (uuid 168678ff-21c0-4473-bb80-ff3230464418)
   )
   (junction (at 123.19 63.5) (diameter 0) (color 0 0 0 0)
@@ -1617,7 +1617,7 @@
   (junction (at 266.7 102.87) (diameter 0) (color 0 0 0 0)
     (uuid 20998a9f-1830-400c-a767-cda259814821)
   )
-  (junction (at 93.98 128.27) (diameter 0) (color 0 0 0 0)
+  (junction (at 99.06 121.92) (diameter 0) (color 0 0 0 0)
     (uuid 2a7b7338-da0c-4f80-9ff4-6df411e51f8d)
   )
   (junction (at 228.6 147.32) (diameter 0) (color 0 0 0 0)
@@ -1632,6 +1632,9 @@
   (junction (at 224.79 21.59) (diameter 0) (color 0 0 0 0)
     (uuid 36b198a6-4d3a-4f67-847e-eaf5e063ec8d)
   )
+  (junction (at 99.06 158.75) (diameter 0) (color 0 0 0 0)
+    (uuid 4258d828-800c-4e80-aacf-70350551090d)
+  )
   (junction (at 240.03 147.32) (diameter 0) (color 0 0 0 0)
     (uuid 4d62d200-9438-461e-9039-181a4285c2fe)
   )
@@ -1641,7 +1644,7 @@
   (junction (at 27.94 168.91) (diameter 0) (color 0 0 0 0)
     (uuid 580d8dfa-35db-456d-9e85-b73f75c16d40)
   )
-  (junction (at 116.84 139.7) (diameter 0) (color 0 0 0 0)
+  (junction (at 121.92 133.35) (diameter 0) (color 0 0 0 0)
     (uuid 750301f1-c4d8-4261-8055-224f17f2d345)
   )
   (junction (at 269.24 82.55) (diameter 0) (color 0 0 0 0)
@@ -1653,7 +1656,7 @@
   (junction (at 269.24 21.59) (diameter 0) (color 0 0 0 0)
     (uuid 976a760d-6391-47c0-81d4-e43b0556892f)
   )
-  (junction (at 96.52 170.18) (diameter 0) (color 0 0 0 0)
+  (junction (at 99.06 170.18) (diameter 0) (color 0 0 0 0)
     (uuid 9d2459bc-1023-4161-bc3e-0e11ea50734b)
   )
   (junction (at 269.24 44.45) (diameter 0) (color 0 0 0 0)
@@ -1671,7 +1674,7 @@
   (junction (at 55.88 20.32) (diameter 0) (color 0 0 0 0)
     (uuid b7f7af95-1fc5-46d9-96a2-8663164c87b7)
   )
-  (junction (at 130.81 175.26) (diameter 0) (color 0 0 0 0)
+  (junction (at 133.35 175.26) (diameter 0) (color 0 0 0 0)
     (uuid c05b1364-4ce8-4937-964d-2ae00c7840cb)
   )
   (junction (at 123.19 55.88) (diameter 0) (color 0 0 0 0)
@@ -1679,6 +1682,9 @@
   )
   (junction (at 123.19 85.09) (diameter 0) (color 0 0 0 0)
     (uuid cf33b17c-2c76-4333-b288-231f8871551c)
+  )
+  (junction (at 83.82 158.75) (diameter 0) (color 0 0 0 0)
+    (uuid d39b2e4d-19de-4651-a6d4-d51121c5fdf2)
   )
   (junction (at 123.19 92.71) (diameter 0) (color 0 0 0 0)
     (uuid da0bdf6f-5405-42e3-9a02-9bf2e47a2a6f)
@@ -1689,16 +1695,16 @@
   (junction (at 254 115.57) (diameter 0) (color 0 0 0 0)
     (uuid e0809734-6ecd-471c-b670-0caa748695a3)
   )
-  (junction (at 107.95 162.56) (diameter 0) (color 0 0 0 0)
+  (junction (at 110.49 162.56) (diameter 0) (color 0 0 0 0)
     (uuid e62ca340-ed5b-4bea-8d0b-b7085669654b)
   )
   (junction (at 269.24 59.69) (diameter 0) (color 0 0 0 0)
     (uuid ef972716-43ab-4bad-8dda-c9ae3bf24789)
   )
-  (junction (at 120.65 128.27) (diameter 0) (color 0 0 0 0)
+  (junction (at 125.73 121.92) (diameter 0) (color 0 0 0 0)
     (uuid f7babeaa-d578-48c8-8d47-3b98a54f4b6a)
   )
-  (junction (at 120.65 162.56) (diameter 0) (color 0 0 0 0)
+  (junction (at 123.19 162.56) (diameter 0) (color 0 0 0 0)
     (uuid fd77a9d1-7377-4b55-b743-e739b53cf4bb)
   )
 
@@ -1758,7 +1764,7 @@
     (stroke (width 0) (type default))
     (uuid 0b96a50a-016e-42ca-9519-1f1014170e48)
   )
-  (wire (pts (xy 120.65 162.56) (xy 130.81 162.56))
+  (wire (pts (xy 123.19 162.56) (xy 133.35 162.56))
     (stroke (width 0) (type default))
     (uuid 0bac5585-f476-45e5-adf2-b29803dceddc)
   )
@@ -1778,7 +1784,7 @@
     (stroke (width 0) (type default))
     (uuid 0dfa8870-960a-4401-8223-0bb46ffa10e1)
   )
-  (wire (pts (xy 96.52 170.18) (xy 97.79 170.18))
+  (wire (pts (xy 99.06 170.18) (xy 100.33 170.18))
     (stroke (width 0) (type default))
     (uuid 0f50eea3-f677-460a-aae3-7cabc07dca38)
   )
@@ -1789,6 +1795,10 @@
   (wire (pts (xy 43.18 134.62) (xy 73.66 134.62))
     (stroke (width 0) (type default))
     (uuid 11530df8-86e4-42d6-a65a-82756aeecf64)
+  )
+  (wire (pts (xy 99.06 146.05) (xy 99.06 158.75))
+    (stroke (width 0) (type default))
+    (uuid 11c9838c-2485-42cc-af4e-d6f62e5ad107)
   )
   (wire (pts (xy 90.17 102.87) (xy 78.74 102.87))
     (stroke (width 0) (type default))
@@ -1810,7 +1820,7 @@
     (stroke (width 0) (type default))
     (uuid 161a87b2-ef1d-4c30-9fc5-836b1efeae46)
   )
-  (wire (pts (xy 130.81 175.26) (xy 130.81 176.53))
+  (wire (pts (xy 133.35 175.26) (xy 133.35 176.53))
     (stroke (width 0) (type default))
     (uuid 167545fd-0045-4152-b125-a879b5e7d767)
   )
@@ -1834,7 +1844,7 @@
     (stroke (width 0) (type default))
     (uuid 1b38d86b-ac00-40c3-a791-2784db949f2d)
   )
-  (wire (pts (xy 130.81 162.56) (xy 130.81 165.1))
+  (wire (pts (xy 133.35 162.56) (xy 133.35 165.1))
     (stroke (width 0) (type default))
     (uuid 1c2ba883-0bbf-434d-bd2f-dd02bff3fb52)
   )
@@ -1858,7 +1868,7 @@
     (stroke (width 0) (type default))
     (uuid 1e78f31f-bbfd-4e1b-bebe-82c45d930905)
   )
-  (wire (pts (xy 81.28 158.75) (xy 83.82 158.75))
+  (wire (pts (xy 83.82 158.75) (xy 86.36 158.75))
     (stroke (width 0) (type default))
     (uuid 1f24a118-9624-4465-9a9d-4879b65e5ff3)
   )
@@ -1950,7 +1960,7 @@
     (stroke (width 0) (type default))
     (uuid 2cb09283-dabb-4591-aeac-cb360ef35610)
   )
-  (wire (pts (xy 116.84 121.92) (xy 116.84 139.7))
+  (wire (pts (xy 121.92 115.57) (xy 121.92 133.35))
     (stroke (width 0) (type default))
     (uuid 2d0f1665-2b3f-473b-a6ba-abe4482a1f68)
   )
@@ -1970,7 +1980,7 @@
     (stroke (width 0) (type default))
     (uuid 2f69a1e1-774b-4042-b1fd-5f80479cc7a6)
   )
-  (wire (pts (xy 87.63 177.8) (xy 97.79 177.8))
+  (wire (pts (xy 90.17 177.8) (xy 100.33 177.8))
     (stroke (width 0) (type default))
     (uuid 30f1b536-5396-43ee-a01c-6ee3432d8456)
   )
@@ -1994,7 +2004,7 @@
     (stroke (width 0) (type default))
     (uuid 327c9160-63e6-4fb5-bdb0-48b99f192475)
   )
-  (wire (pts (xy 93.98 158.75) (xy 96.52 158.75))
+  (wire (pts (xy 96.52 158.75) (xy 99.06 158.75))
     (stroke (width 0) (type default))
     (uuid 327f8604-4429-4af1-b318-f03d2565a179)
   )
@@ -2038,7 +2048,7 @@
     (stroke (width 0) (type default))
     (uuid 3c7bd26a-db6e-4e95-9d7a-74e2c9d5cc90)
   )
-  (wire (pts (xy 93.98 128.27) (xy 100.33 128.27))
+  (wire (pts (xy 99.06 121.92) (xy 105.41 121.92))
     (stroke (width 0) (type default))
     (uuid 3d31c71a-125f-478d-afbd-ce42c0e79f75)
   )
@@ -2054,7 +2064,7 @@
     (stroke (width 0) (type default))
     (uuid 3e707e88-7165-40fa-bb64-4f5891ad62ad)
   )
-  (wire (pts (xy 104.14 133.35) (xy 104.14 139.7))
+  (wire (pts (xy 109.22 127) (xy 109.22 133.35))
     (stroke (width 0) (type default))
     (uuid 41364e87-4f4c-4690-9443-5dc6c4a3d9f1)
   )
@@ -2062,11 +2072,11 @@
     (stroke (width 0) (type default))
     (uuid 419d88df-4f0b-42b6-bb8c-e5e7edcca8ab)
   )
-  (wire (pts (xy 107.95 162.56) (xy 120.65 162.56))
+  (wire (pts (xy 110.49 162.56) (xy 123.19 162.56))
     (stroke (width 0) (type default))
     (uuid 41a42deb-c86d-40e5-8737-fc582cc46a71)
   )
-  (wire (pts (xy 116.84 139.7) (xy 120.65 139.7))
+  (wire (pts (xy 121.92 133.35) (xy 125.73 133.35))
     (stroke (width 0) (type default))
     (uuid 45488a2a-e28e-498a-9a59-c5c3ecde9864)
   )
@@ -2078,11 +2088,11 @@
     (stroke (width 0) (type default))
     (uuid 45cde4c6-1a35-44b7-9ddc-d5b96dce3a71)
   )
-  (wire (pts (xy 107.95 190.5) (xy 107.95 191.77))
+  (wire (pts (xy 110.49 190.5) (xy 110.49 191.77))
     (stroke (width 0) (type default))
     (uuid 4874d3bd-424b-498b-8688-6607d399b53f)
   )
-  (wire (pts (xy 130.81 172.72) (xy 130.81 175.26))
+  (wire (pts (xy 133.35 172.72) (xy 133.35 175.26))
     (stroke (width 0) (type default))
     (uuid 490d06a1-66d8-410e-907d-d1de28373a77)
   )
@@ -2114,7 +2124,7 @@
     (stroke (width 0) (type default))
     (uuid 540d52e8-8cdb-410f-bbab-222dc6239203)
   )
-  (wire (pts (xy 107.95 162.56) (xy 107.95 165.1))
+  (wire (pts (xy 110.49 162.56) (xy 110.49 165.1))
     (stroke (width 0) (type default))
     (uuid 54a97fd0-2fb0-443d-a528-6569f438b4ce)
   )
@@ -2146,7 +2156,7 @@
     (stroke (width 0) (type default))
     (uuid 5caf6519-eede-47b5-bbbf-70839dedb919)
   )
-  (wire (pts (xy 120.65 130.81) (xy 120.65 128.27))
+  (wire (pts (xy 125.73 124.46) (xy 125.73 121.92))
     (stroke (width 0) (type default))
     (uuid 5dc5dbbe-3321-4d94-8c3e-e64c6f20f621)
   )
@@ -2166,7 +2176,7 @@
     (stroke (width 0) (type default))
     (uuid 60b391fe-8fd0-4550-a27c-ffd88519a29a)
   )
-  (wire (pts (xy 104.14 139.7) (xy 104.14 140.97))
+  (wire (pts (xy 109.22 133.35) (xy 109.22 134.62))
     (stroke (width 0) (type default))
     (uuid 60cf2188-65bb-4682-b120-36d8993f8af0)
   )
@@ -2190,7 +2200,7 @@
     (stroke (width 0) (type default))
     (uuid 680f8f47-183c-458e-bae5-4af8c44d6b34)
   )
-  (wire (pts (xy 104.14 123.19) (xy 104.14 121.92))
+  (wire (pts (xy 109.22 116.84) (xy 109.22 115.57))
     (stroke (width 0) (type default))
     (uuid 689ba938-f6cf-4e2e-92e7-2e14b7b3774b)
   )
@@ -2198,7 +2208,7 @@
     (stroke (width 0) (type default))
     (uuid 68d25c20-e649-411b-8cad-cfa0206a6130)
   )
-  (wire (pts (xy 87.63 175.26) (xy 97.79 175.26))
+  (wire (pts (xy 90.17 175.26) (xy 100.33 175.26))
     (stroke (width 0) (type default))
     (uuid 6b2bd64a-084a-4dfc-9c9c-6eb1a04c94ba)
   )
@@ -2278,6 +2288,10 @@
     (stroke (width 0) (type default))
     (uuid 80c51453-c618-4d0e-b67c-ec9f934457ae)
   )
+  (wire (pts (xy 96.52 146.05) (xy 99.06 146.05))
+    (stroke (width 0) (type default))
+    (uuid 83c8fdc9-de91-40b3-baa4-9068aea4d033)
+  )
   (wire (pts (xy 269.24 81.28) (xy 269.24 82.55))
     (stroke (width 0) (type default))
     (uuid 86a71986-7cc2-4579-8d40-be8f17704079)
@@ -2306,11 +2320,11 @@
     (stroke (width 0) (type default))
     (uuid 8a2c7715-5d8b-4a25-9530-b7dff5855a6c)
   )
-  (wire (pts (xy 93.98 130.81) (xy 93.98 128.27))
+  (wire (pts (xy 99.06 124.46) (xy 99.06 121.92))
     (stroke (width 0) (type default))
     (uuid 8a38a871-754c-4484-9d93-d33a5754c8fe)
   )
-  (wire (pts (xy 115.57 116.84) (xy 120.65 116.84))
+  (wire (pts (xy 120.65 110.49) (xy 125.73 110.49))
     (stroke (width 0) (type default))
     (uuid 8b8e28e9-9f5d-4699-b869-fe964e084558)
   )
@@ -2326,6 +2340,10 @@
     (stroke (width 0) (type default))
     (uuid 8c8f751c-d5d7-41e8-a85d-3e8fbf2e999e)
   )
+  (wire (pts (xy 86.36 146.05) (xy 83.82 146.05))
+    (stroke (width 0) (type default))
+    (uuid 8caa4edc-8f4e-4e39-a3d1-092c351759d3)
+  )
   (wire (pts (xy 114.3 92.71) (xy 123.19 92.71))
     (stroke (width 0) (type default))
     (uuid 8e70d30e-5174-4e1b-9ada-2fad496136b8)
@@ -2338,7 +2356,7 @@
     (stroke (width 0) (type default))
     (uuid 8f18d43d-0b62-4bcb-ab16-9db10ee23a37)
   )
-  (wire (pts (xy 87.63 180.34) (xy 97.79 180.34))
+  (wire (pts (xy 90.17 180.34) (xy 100.33 180.34))
     (stroke (width 0) (type default))
     (uuid 9019551d-9131-4b68-b3a5-d5c04b0a4178)
   )
@@ -2410,7 +2428,7 @@
     (stroke (width 0) (type default))
     (uuid 99d8f76b-13a7-4ce1-a353-c6a623e91191)
   )
-  (wire (pts (xy 87.63 182.88) (xy 97.79 182.88))
+  (wire (pts (xy 90.17 182.88) (xy 100.33 182.88))
     (stroke (width 0) (type default))
     (uuid 9b95c43c-3da7-4986-b8b6-621c6cfa0613)
   )
@@ -2458,7 +2476,7 @@
     (stroke (width 0) (type default))
     (uuid a7e35dbc-a7a4-46d5-88c5-2d55861c8c26)
   )
-  (wire (pts (xy 104.14 121.92) (xy 116.84 121.92))
+  (wire (pts (xy 109.22 115.57) (xy 121.92 115.57))
     (stroke (width 0) (type default))
     (uuid a825e858-eebf-46ce-aa98-724b8525f742)
   )
@@ -2494,7 +2512,7 @@
     (stroke (width 0) (type default))
     (uuid ad881e37-c5c7-4ff0-8548-b1a33222ce54)
   )
-  (wire (pts (xy 120.65 172.72) (xy 120.65 175.26))
+  (wire (pts (xy 123.19 172.72) (xy 123.19 175.26))
     (stroke (width 0) (type default))
     (uuid adb928b3-79bd-40cd-b068-d527e3e27286)
   )
@@ -2502,15 +2520,15 @@
     (stroke (width 0) (type default))
     (uuid adc92e07-b49d-4ecb-a63e-348c677231e2)
   )
-  (wire (pts (xy 104.14 139.7) (xy 116.84 139.7))
+  (wire (pts (xy 109.22 133.35) (xy 121.92 133.35))
     (stroke (width 0) (type default))
     (uuid ae872c35-21e8-47d2-abb6-bc01d828a6d2)
   )
-  (wire (pts (xy 93.98 128.27) (xy 93.98 116.84))
+  (wire (pts (xy 99.06 121.92) (xy 99.06 110.49))
     (stroke (width 0) (type default))
     (uuid af5a8823-84cd-40f5-919d-020dadcdbe22)
   )
-  (wire (pts (xy 93.98 138.43) (xy 93.98 139.7))
+  (wire (pts (xy 99.06 132.08) (xy 99.06 133.35))
     (stroke (width 0) (type default))
     (uuid afd57363-4612-43df-8c69-9df19c3e1c1d)
   )
@@ -2530,7 +2548,7 @@
     (stroke (width 0) (type default))
     (uuid b2db2e45-0cd0-44b5-90b4-7ef31fa67999)
   )
-  (wire (pts (xy 96.52 158.75) (xy 96.52 160.02))
+  (wire (pts (xy 99.06 158.75) (xy 99.06 160.02))
     (stroke (width 0) (type default))
     (uuid b364e89f-6c86-4832-8918-98d814c9af14)
   )
@@ -2574,13 +2592,17 @@
     (stroke (width 0) (type default))
     (uuid bcbc4f10-8fe4-4366-8799-7ad6952f4770)
   )
-  (wire (pts (xy 93.98 116.84) (xy 99.06 116.84))
+  (wire (pts (xy 99.06 110.49) (xy 104.14 110.49))
     (stroke (width 0) (type default))
     (uuid bcbf1df6-8398-412d-8905-90875e4039f9)
   )
   (wire (pts (xy 123.19 92.71) (xy 123.19 93.98))
     (stroke (width 0) (type default))
     (uuid bcd46cfa-cfd4-48f4-a0c9-b0e72daaa084)
+  )
+  (wire (pts (xy 83.82 146.05) (xy 83.82 158.75))
+    (stroke (width 0) (type default))
+    (uuid bd2b9eec-30d5-4a00-979f-dc881ee79e75)
   )
   (wire (pts (xy 20.32 168.91) (xy 27.94 168.91))
     (stroke (width 0) (type default))
@@ -2590,7 +2612,7 @@
     (stroke (width 0) (type default))
     (uuid bd42c118-065a-49e4-bb7a-f0b7a668f7b6)
   )
-  (wire (pts (xy 120.65 116.84) (xy 120.65 118.11))
+  (wire (pts (xy 125.73 110.49) (xy 125.73 111.76))
     (stroke (width 0) (type default))
     (uuid bdc79f78-6d00-45af-9a8f-f7cd8a74f222)
   )
@@ -2602,7 +2624,7 @@
     (stroke (width 0) (type default))
     (uuid bee87dd5-b2fb-4da4-9ed0-ad1f165826df)
   )
-  (wire (pts (xy 107.95 128.27) (xy 120.65 128.27))
+  (wire (pts (xy 113.03 121.92) (xy 125.73 121.92))
     (stroke (width 0) (type default))
     (uuid c00cecf7-c0ba-41b5-8381-e0ba79250bba)
   )
@@ -2618,11 +2640,11 @@
     (stroke (width 0) (type default))
     (uuid c27e5654-a8fb-4bc7-bc1f-0dffbc7985e9)
   )
-  (wire (pts (xy 87.63 170.18) (xy 96.52 170.18))
+  (wire (pts (xy 90.17 170.18) (xy 99.06 170.18))
     (stroke (width 0) (type default))
     (uuid c30d23a1-5015-44c9-9ac5-4a53d53b78bd)
   )
-  (wire (pts (xy 87.63 172.72) (xy 97.79 172.72))
+  (wire (pts (xy 90.17 172.72) (xy 100.33 172.72))
     (stroke (width 0) (type default))
     (uuid c5b2e4db-836d-4625-b8ad-86daf9e8844b)
   )
@@ -2682,7 +2704,7 @@
     (stroke (width 0) (type default))
     (uuid cb64a2f4-bc8a-4321-a626-2cbf73628d38)
   )
-  (wire (pts (xy 120.65 125.73) (xy 120.65 128.27))
+  (wire (pts (xy 125.73 119.38) (xy 125.73 121.92))
     (stroke (width 0) (type default))
     (uuid cbb04a48-c934-4285-990e-9ff324742608)
   )
@@ -2710,7 +2732,7 @@
     (stroke (width 0) (type default))
     (uuid d027254b-e4cc-49bb-ab91-87a94ef2587a)
   )
-  (wire (pts (xy 120.65 139.7) (xy 120.65 138.43))
+  (wire (pts (xy 125.73 133.35) (xy 125.73 132.08))
     (stroke (width 0) (type default))
     (uuid d0925fee-3aa7-4b87-8eba-491c84871a31)
   )
@@ -2730,7 +2752,7 @@
     (stroke (width 0) (type default))
     (uuid d50b2ee6-64d8-4263-87c1-7cb6234d668c)
   )
-  (wire (pts (xy 96.52 167.64) (xy 96.52 170.18))
+  (wire (pts (xy 99.06 167.64) (xy 99.06 170.18))
     (stroke (width 0) (type default))
     (uuid d53f20d5-6c89-42d3-ac38-841cf22dab33)
   )
@@ -2786,7 +2808,7 @@
     (stroke (width 0) (type default))
     (uuid e1d6a3bb-8f17-44df-8e7a-ca6fcd307066)
   )
-  (wire (pts (xy 81.28 158.75) (xy 81.28 160.02))
+  (wire (pts (xy 83.82 158.75) (xy 83.82 160.02))
     (stroke (width 0) (type default))
     (uuid e3a82776-8ab0-4e13-ab01-4d2ce4fba928)
   )
@@ -2814,7 +2836,7 @@
     (stroke (width 0) (type default))
     (uuid ebb3139c-4585-4389-9c53-495f4357a979)
   )
-  (wire (pts (xy 120.65 162.56) (xy 120.65 165.1))
+  (wire (pts (xy 123.19 162.56) (xy 123.19 165.1))
     (stroke (width 0) (type default))
     (uuid ec392bed-eba3-4bec-955d-446a96754b9b)
   )
@@ -2834,7 +2856,7 @@
     (stroke (width 0) (type default))
     (uuid f0f932b1-cfaa-468d-83ba-4f213106834a)
   )
-  (wire (pts (xy 93.98 139.7) (xy 104.14 139.7))
+  (wire (pts (xy 99.06 133.35) (xy 109.22 133.35))
     (stroke (width 0) (type default))
     (uuid f14de8c8-107d-45ee-a181-b4e334a8fca2)
   )
@@ -2846,7 +2868,7 @@
     (stroke (width 0) (type default))
     (uuid f390943e-9155-426c-b365-916331763e55)
   )
-  (wire (pts (xy 107.95 161.29) (xy 107.95 162.56))
+  (wire (pts (xy 110.49 161.29) (xy 110.49 162.56))
     (stroke (width 0) (type default))
     (uuid f4d3fc6a-0589-4324-aa7a-2fab98406847)
   )
@@ -2866,7 +2888,7 @@
     (stroke (width 0) (type default))
     (uuid f875b49a-3ed1-4a8e-a804-cd2da0c340f3)
   )
-  (wire (pts (xy 120.65 175.26) (xy 130.81 175.26))
+  (wire (pts (xy 123.19 175.26) (xy 133.35 175.26))
     (stroke (width 0) (type default))
     (uuid fa0e1e7c-a837-4a95-bf98-95567daa64b7)
   )
@@ -2899,7 +2921,7 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 007ddd57-a8ce-42b1-8303-f4693935c9a3)
   )
-  (label "XIN" (at 99.06 116.84 180) (fields_autoplaced)
+  (label "XIN" (at 104.14 110.49 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 0265250c-85ad-4edc-92e3-648e41ed5b84)
   )
@@ -2919,7 +2941,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 166c4974-2c7d-4155-ac38-cadc6fd3883a)
   )
-  (label "QSPI_SD3" (at 87.63 182.88 0) (fields_autoplaced)
+  (label "QSPI_SD3" (at 90.17 182.88 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 1799a261-95ae-49b9-9908-7e06ee3807d5)
   )
@@ -2939,7 +2961,7 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 2b68d28b-6ca1-4f89-88db-0dfd032e3900)
   )
-  (label "QSPI_SD1" (at 87.63 177.8 0) (fields_autoplaced)
+  (label "QSPI_SD1" (at 90.17 177.8 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 2cc9d986-00a0-46fb-bd73-7b817ba68bf2)
   )
@@ -2991,7 +3013,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 49f05c4b-61e8-44dd-be31-eac046f31d52)
   )
-  (label "QSPI_SCLK" (at 87.63 172.72 0) (fields_autoplaced)
+  (label "QSPI_SCLK" (at 90.17 172.72 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 4c7116f9-7a27-42aa-8c3f-2557f842ae4b)
   )
@@ -3027,7 +3049,7 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 78b22eb7-6927-42f8-860c-6838f31559c8)
   )
-  (label "QSPI_SD0" (at 87.63 175.26 0) (fields_autoplaced)
+  (label "QSPI_SD0" (at 90.17 175.26 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 7bc9e2c8-5ae8-44e7-ba40-62f98bb0c6ad)
   )
@@ -3123,7 +3145,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid b883402d-e0a6-4ff3-b964-655774f4c005)
   )
-  (label "XOUT" (at 115.57 116.84 0) (fields_autoplaced)
+  (label "XOUT" (at 120.65 110.49 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid b89f7af9-ee14-475e-8e4e-0ddd22568be3)
   )
@@ -3143,7 +3165,7 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid c22901e3-21c0-4704-b017-2f86ba453442)
   )
-  (label "QSPI_SD2" (at 87.63 180.34 0) (fields_autoplaced)
+  (label "QSPI_SD2" (at 90.17 180.34 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid c52cb581-32c4-40a2-a2ce-441cb2f62783)
   )
@@ -3199,7 +3221,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid e22102ec-39de-4b3c-b7ea-3d1ae7dcf500)
   )
-  (label "QSPI_SS" (at 87.63 170.18 0) (fields_autoplaced)
+  (label "QSPI_SS" (at 90.17 170.18 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid e5dc003d-2db1-46b4-a2c0-03694d8a62ad)
   )
@@ -3268,7 +3290,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "H4") (unit 1)
         )
@@ -3294,7 +3316,7 @@
     (pin "1" (uuid ec9cfa55-f678-4ac1-a085-19999548392d))
     (pin "2" (uuid da72e289-da0c-42e5-8d17-997656568693))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW20") (unit 1)
         )
@@ -3318,7 +3340,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "H8") (unit 1)
         )
@@ -3343,7 +3365,7 @@
     )
     (pin "1" (uuid 046a8356-8186-4a9a-bc97-4b99b9d266c7))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR022") (unit 1)
         )
@@ -3368,7 +3390,7 @@
     )
     (pin "1" (uuid a70a6fc3-62cf-4265-be90-c2a524868e6d))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR057") (unit 1)
         )
@@ -3394,7 +3416,7 @@
     (pin "1" (uuid ec6b849e-1168-4c8b-91d4-2b0a1bd22480))
     (pin "2" (uuid 5ceaf8a7-2be3-4cdc-96a1-b92cc8f50ea0))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW18") (unit 1)
         )
@@ -3419,7 +3441,7 @@
     )
     (pin "1" (uuid 722d1984-93d3-471f-b9c3-8d5504ba9867))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR02") (unit 1)
         )
@@ -3444,7 +3466,7 @@
     )
     (pin "1" (uuid eaa157bd-7691-4a32-8e05-25ef304bc497))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR041") (unit 1)
         )
@@ -3470,7 +3492,7 @@
     (pin "1" (uuid 6da5cd5a-193b-4796-9878-35e5587b7365))
     (pin "2" (uuid dada4721-cf8b-48ef-b818-aa6700bebe18))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R3") (unit 1)
         )
@@ -3495,7 +3517,7 @@
     )
     (pin "1" (uuid 6e7e6892-3227-415f-8b97-ae22d34f8fd8))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR030") (unit 1)
         )
@@ -3522,7 +3544,7 @@
     (pin "2" (uuid 09fec00c-19aa-4aa3-bf78-cc77e265fa10))
     (pin "3" (uuid 5970ffe8-c3d7-42cc-9f8e-8bfcfe08d06a))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "ML-SW4") (unit 1)
         )
@@ -3548,7 +3570,7 @@
     (pin "1" (uuid bd5a572c-e711-4f59-8acb-8a2ca75f3a09))
     (pin "2" (uuid c33f5a2a-b1c6-4565-937d-e3fca52457ff))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW13") (unit 1)
         )
@@ -3574,7 +3596,7 @@
     (pin "1" (uuid 8841b351-743b-4322-a986-cb8556618497))
     (pin "2" (uuid 684bb4a9-44eb-46c6-94fd-eba5f541fb88))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW11") (unit 1)
         )
@@ -3599,7 +3621,7 @@
     )
     (pin "1" (uuid 7ac7dc87-b4d0-4cd8-a7df-4196958abe39))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "TP1") (unit 1)
         )
@@ -3607,22 +3629,22 @@
     )
   )
 
-  (symbol (lib_id "Device:Crystal_GND24") (at 104.14 128.27 0) (unit 1)
+  (symbol (lib_id "Device:Crystal_GND24") (at 109.22 121.92 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1d2d59d5-9bf4-4ba1-9557-3e5dc3f43989)
-    (property "Reference" "Y1" (at 110.49 124.46 0)
+    (property "Reference" "Y1" (at 115.57 118.11 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "NX3225SA-12MHz-STD-CSR-6" (at 104.14 120.65 0)
+    (property "Value" "NX3225SA-12MHz-STD-CSR-6" (at 109.22 114.3 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm" (at 104.14 128.27 0)
+    (property "Footprint" "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm" (at 109.22 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 104.14 128.27 0)
+    (property "Datasheet" "~" (at 109.22 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "LCSC" "C481400" (at 104.14 128.27 0)
+    (property "LCSC" "C481400" (at 109.22 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid f413e953-09dc-4b67-bf91-0e1851c25835))
@@ -3630,7 +3652,7 @@
     (pin "3" (uuid e8ee880b-b67f-4a0b-911f-195219384c2e))
     (pin "4" (uuid 891c0e54-aa70-47db-8584-51e58f03f082))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "Y1") (unit 1)
         )
@@ -3656,7 +3678,7 @@
     (pin "1" (uuid 59c856b8-dc36-40f6-b4cd-c9cb21568c0e))
     (pin "2" (uuid 995a0af5-4f0e-442e-8431-bd96a56ea60d))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C5") (unit 1)
         )
@@ -3682,7 +3704,7 @@
     (pin "1" (uuid 65f239ae-3af7-481d-9f66-a3db6555b302))
     (pin "2" (uuid 5844916d-fc2f-47df-988f-ee987e5bf0b8))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C16") (unit 1)
         )
@@ -3708,7 +3730,7 @@
     (pin "1" (uuid 6f721046-1edb-4078-a282-198490cc61ee))
     (pin "2" (uuid 2e9efd78-230b-4c7f-ab5d-004eda538a2e))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C13") (unit 1)
         )
@@ -3734,7 +3756,7 @@
     (pin "1" (uuid fe0b8e30-1e0c-457a-92b8-6ef377f04580))
     (pin "2" (uuid e758f0aa-64ad-49a5-9a60-647234156508))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R4") (unit 1)
         )
@@ -3742,25 +3764,25 @@
     )
   )
 
-  (symbol (lib_id "Device:C") (at 120.65 134.62 0) (unit 1)
+  (symbol (lib_id "Device:C") (at 125.73 128.27 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2d745098-d36f-4e12-86db-9c1f2556bd40)
-    (property "Reference" "C8" (at 124.46 134.62 0)
+    (property "Reference" "C8" (at 129.54 128.27 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "5.6p" (at 124.46 135.89 0)
+    (property "Value" "5.6p" (at 129.54 129.54 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 121.6152 138.43 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 126.6952 132.08 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 120.65 134.62 0)
+    (property "Datasheet" "~" (at 125.73 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 5a882cea-22ec-4ffc-9c0f-c5ad90207fdb))
     (pin "2" (uuid 62fc9871-bbf6-41e8-b776-f9666541cc8a))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C8") (unit 1)
         )
@@ -3786,7 +3808,7 @@
     (pin "1" (uuid 308c970f-daf6-46e6-948e-5d6413656e38))
     (pin "2" (uuid c5ee2a5e-86d0-4a2e-bc18-676f1e97914b))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW12") (unit 1)
         )
@@ -3794,25 +3816,25 @@
     )
   )
 
-  (symbol (lib_id "Device:R") (at 120.65 121.92 180) (unit 1)
+  (symbol (lib_id "Device:R") (at 125.73 115.57 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 30cb0337-e6d0-49de-9053-d6bfcde50542)
-    (property "Reference" "R6" (at 123.19 120.65 0)
+    (property "Reference" "R6" (at 128.27 114.3 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "1k" (at 123.19 123.19 0)
+    (property "Value" "1k" (at 128.27 116.84 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 122.428 121.92 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 127.508 115.57 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 120.65 121.92 0)
+    (property "Datasheet" "~" (at 125.73 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 1389b5ac-3b46-4243-b64a-885e5eba65fb))
     (pin "2" (uuid cb4c96c5-9888-4e0c-b5c5-7b337d22288e))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R6") (unit 1)
         )
@@ -3838,7 +3860,7 @@
     (pin "1" (uuid 5acd8594-458c-4e65-ab6f-7e054589ca12))
     (pin "2" (uuid fb02c878-107f-4b4c-ab7d-e4d783cb5c3b))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW2") (unit 1)
         )
@@ -3863,7 +3885,7 @@
     )
     (pin "1" (uuid e1b05a9f-cc34-4879-b834-65bc97cab73d))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR01") (unit 1)
         )
@@ -3888,7 +3910,7 @@
     )
     (pin "1" (uuid 66cbddcb-4154-49e6-b087-3c920eae3682))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR043") (unit 1)
         )
@@ -3913,7 +3935,7 @@
     )
     (pin "1" (uuid cb78bd74-0f27-44c6-bf9a-a20f4868a55f))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR056") (unit 1)
         )
@@ -3939,7 +3961,7 @@
     (pin "1" (uuid a07cacaf-fb41-48b0-a127-8234ab521935))
     (pin "2" (uuid 352c29b2-2eea-47a8-883d-f374344eb7fe))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C15") (unit 1)
         )
@@ -3950,10 +3972,10 @@
   (symbol (lib_id "Switch:SW_Push") (at 217.17 107.95 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 3b6032d2-e7f3-44b2-a13d-953fd8054957)
-    (property "Reference" "SW23" (at 217.17 100.33 0)
+    (property "Reference" "SW24" (at 217.17 102.0191 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "SKQGAFE010" (at 217.17 102.87 0)
+    (property "Value" "SKQGAFE010" (at 217.17 103.9401 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Button_Switch_SMD:SW_SPST_SKQG_WithStem" (at 217.17 102.87 0)
@@ -3968,9 +3990,9 @@
     (pin "1" (uuid 50487f68-5d98-4bb3-847f-d7a08a4031b7))
     (pin "2" (uuid 074f3c76-497f-4dbe-aba7-1ab54352d89c))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
-          (reference "SW23") (unit 1)
+          (reference "SW24") (unit 1)
         )
       )
     )
@@ -3993,7 +4015,7 @@
     )
     (pin "1" (uuid 3871a972-8f01-4f42-af69-89901b22bd27))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR058") (unit 1)
         )
@@ -4001,25 +4023,25 @@
     )
   )
 
-  (symbol (lib_id "Device:C") (at 93.98 134.62 0) (unit 1)
+  (symbol (lib_id "Device:C") (at 99.06 128.27 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3d6ae822-da3c-4475-bd33-0dc6208693d6)
-    (property "Reference" "C1" (at 96.901 133.9763 0)
+    (property "Reference" "C1" (at 101.981 127.6263 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "5.6p" (at 96.901 135.8973 0)
+    (property "Value" "5.6p" (at 101.981 129.5473 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 94.9452 138.43 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 100.0252 132.08 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 93.98 134.62 0)
+    (property "Datasheet" "~" (at 99.06 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 1cb5c11d-8ffd-433d-a07c-ea4786c2d68c))
     (pin "2" (uuid c107846b-1a97-4a36-baa7-18b53d4089bb))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C1") (unit 1)
         )
@@ -4054,7 +4076,7 @@
     (pin "1" (uuid a989c0dd-8a3b-4a44-a87d-54b326f38f73))
     (pin "2" (uuid 07ac4e90-3857-4666-bd8b-757449e4f906))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "D1") (unit 1)
         )
@@ -4081,7 +4103,7 @@
     (pin "2" (uuid fcc3e9f4-9730-4e59-a67f-cebcb17bd3bc))
     (pin "3" (uuid d8f99203-b759-4a23-9f56-6a21ccab35c0))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "ML-SW3") (unit 1)
         )
@@ -4106,7 +4128,7 @@
     )
     (pin "1" (uuid fb96bbbf-f96c-44eb-ae50-7fdebe0f0421))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR061") (unit 1)
         )
@@ -4130,7 +4152,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "H1") (unit 1)
         )
@@ -4156,7 +4178,7 @@
     (pin "1" (uuid a11e99ba-6334-405e-b4bf-4ce19c5f8039))
     (pin "2" (uuid 3c77b1bd-7552-42c7-9378-11afbfedee1c))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R7") (unit 1)
         )
@@ -4182,7 +4204,7 @@
     (pin "1" (uuid f0bdd08f-4c72-413d-a59d-e53c61fa38ac))
     (pin "2" (uuid 6d6af5e9-7e13-4f66-8dca-e51333cb1eeb))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW10") (unit 1)
         )
@@ -4207,7 +4229,7 @@
     )
     (pin "1" (uuid 4439d435-8c50-407f-9787-5211bf2a6ece))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR016") (unit 1)
         )
@@ -4233,7 +4255,7 @@
     (pin "1" (uuid 1df8f42d-5429-4cb8-a853-cd9074f14b31))
     (pin "2" (uuid 7518c77e-0557-4221-875b-b3cb28568bac))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R10") (unit 1)
         )
@@ -4259,7 +4281,7 @@
     (pin "1" (uuid 96b957b8-b115-4120-a450-26ff0aa4195f))
     (pin "2" (uuid df878ddd-0df5-48c5-a1ba-5d1bf0239027))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW3") (unit 1)
         )
@@ -4283,7 +4305,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "H3") (unit 1)
         )
@@ -4309,7 +4331,7 @@
     (pin "1" (uuid 9ac0e78f-9895-4209-b807-47060cc7f2f7))
     (pin "2" (uuid f7941d64-5f7c-4e44-bcbe-3ae09698e4c0))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW17") (unit 1)
         )
@@ -4336,7 +4358,7 @@
     (pin "2" (uuid 3d3b00a1-2dd8-432b-89bb-0376e6305486))
     (pin "3" (uuid 93f5adf1-7adb-4ec6-955a-59ead3b270cd))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "J1") (unit 1)
         )
@@ -4360,7 +4382,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "H7") (unit 1)
         )
@@ -4384,7 +4406,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "H5") (unit 1)
         )
@@ -4392,22 +4414,22 @@
     )
   )
 
-  (symbol (lib_id "Memory_Flash:W25Q32JVSS") (at 107.95 177.8 0) (unit 1)
+  (symbol (lib_id "Memory_Flash:W25Q32JVSS") (at 110.49 177.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5f7f40ed-791f-4559-a82d-d3614cb4967c)
-    (property "Reference" "U2" (at 116.84 176.53 0)
+    (property "Reference" "U2" (at 119.38 176.53 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "W25Q16JVSSIM" (at 116.84 179.07 0)
+    (property "Value" "W25Q16JVSSIM" (at 119.38 179.07 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Package_SO:SOIC-8_5.23x5.23mm_P1.27mm" (at 107.95 177.8 0)
+    (property "Footprint" "Package_SO:SOIC-8_5.23x5.23mm_P1.27mm" (at 110.49 177.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf" (at 107.95 177.8 0)
+    (property "Datasheet" "http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf" (at 110.49 177.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "LCSC" "C82317" (at 107.95 177.8 0)
+    (property "LCSC" "C82317" (at 110.49 177.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid b671e3aa-7047-40f0-8e3c-76241d21d08b))
@@ -4419,7 +4441,7 @@
     (pin "7" (uuid 87d6c9d4-65e5-4ee8-8081-ca693802bbe9))
     (pin "8" (uuid f22f8329-174a-4e32-9420-5a2a4b9c42cd))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "U2") (unit 1)
         )
@@ -4445,7 +4467,7 @@
     (pin "1" (uuid 07ab6364-2025-4303-9e67-fa82f5f90c15))
     (pin "2" (uuid ddc463e8-2caf-4622-bd65-1d7fede26e19))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C6") (unit 1)
         )
@@ -4471,7 +4493,7 @@
     (pin "1" (uuid 1685081d-170f-48e3-8a46-cf684f837d47))
     (pin "2" (uuid f0f62f08-3b88-4970-8c2c-5dd6045c9e37))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C14") (unit 1)
         )
@@ -4497,7 +4519,7 @@
     (pin "1" (uuid dc2c771a-420c-4002-bd78-0fcce8fed151))
     (pin "2" (uuid ab14ff5d-e656-4c2d-a47e-1d449b39ff72))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R9") (unit 1)
         )
@@ -4522,7 +4544,7 @@
     )
     (pin "1" (uuid a7da161a-b6ab-412e-bc4a-6fd01b282ec4))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR08") (unit 1)
         )
@@ -4547,7 +4569,7 @@
     )
     (pin "1" (uuid 01a3eeb6-085a-4acb-870e-0c9177f55269))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR044") (unit 1)
         )
@@ -4573,7 +4595,7 @@
     (pin "1" (uuid 140b8bc5-3aa8-4f7f-9b92-c59c21baae90))
     (pin "2" (uuid cae3c253-a1de-4bf8-9f5a-602900b6d93c))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW5") (unit 1)
         )
@@ -4598,7 +4620,7 @@
     )
     (pin "1" (uuid 9f5a64a3-e52c-45c6-b947-ebcfb64763ee))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR063") (unit 1)
         )
@@ -4623,7 +4645,7 @@
     )
     (pin "1" (uuid edb58e9e-9d01-46e7-9f77-7070f0719b5d))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR07") (unit 1)
         )
@@ -4649,7 +4671,7 @@
     (pin "1" (uuid 1c284c64-63c6-4eac-9ea8-82d01d252f2d))
     (pin "2" (uuid bab1f41c-5687-4695-a4d6-5c1e8aadb2ef))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW4") (unit 1)
         )
@@ -4674,7 +4696,7 @@
     )
     (pin "1" (uuid 40d2dfc2-dada-4977-99f9-a11ad8e0622f))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR020") (unit 1)
         )
@@ -4700,7 +4722,7 @@
     (pin "1" (uuid 80a3ef90-d1ee-47a4-b994-352499b0af29))
     (pin "2" (uuid 4277398f-4a7e-4ce3-9db1-6473cc22b4b8))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R8") (unit 1)
         )
@@ -4725,7 +4747,7 @@
     )
     (pin "1" (uuid d7a23997-b0f0-444f-9d62-bb028c4d04b6))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR021") (unit 1)
         )
@@ -4750,7 +4772,7 @@
     )
     (pin "1" (uuid aa1b50e9-6852-4683-8e39-6bd0cef26973))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR051") (unit 1)
         )
@@ -4775,7 +4797,7 @@
     )
     (pin "1" (uuid f82c45c2-c7cb-44b1-8506-12542d0eb199))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR025") (unit 1)
         )
@@ -4800,7 +4822,7 @@
     )
     (pin "1" (uuid 1f851540-1821-40f8-b35b-60c2121116b7))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR034") (unit 1)
         )
@@ -4825,7 +4847,7 @@
     )
     (pin "1" (uuid 717f2bd3-6343-4e7f-90dc-32828f4b6384))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR050") (unit 1)
         )
@@ -4851,7 +4873,7 @@
     (pin "1" (uuid 10a7e565-69de-4a00-b586-576bad1c62b1))
     (pin "2" (uuid 9bc8ecbe-d3ee-4ba3-9229-a903e27cf0b3))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW14") (unit 1)
         )
@@ -4876,7 +4898,7 @@
     )
     (pin "1" (uuid 0d0d934f-c69f-4104-a91a-d5d0ed5d5b07))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR026") (unit 1)
         )
@@ -4901,7 +4923,7 @@
     )
     (pin "1" (uuid fce2bffc-0fac-469e-b05b-ad3d6be08665))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR055") (unit 1)
         )
@@ -4926,7 +4948,7 @@
     )
     (pin "1" (uuid e353c62d-ba10-478f-83ab-028382f070bf))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR012") (unit 1)
         )
@@ -4950,7 +4972,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "H6") (unit 1)
         )
@@ -4958,28 +4980,28 @@
     )
   )
 
-  (symbol (lib_id "Switch:SW_Push") (at 88.9 158.75 0) (unit 1)
+  (symbol (lib_id "Switch:SW_Push") (at 91.44 158.75 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 853f6bd2-2ba0-4806-8475-c9a8d4b3bb25)
-    (property "Reference" "SW22" (at 88.9 151.13 0)
+    (property "Reference" "SW22" (at 91.44 151.13 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "SKQGAFE010" (at 88.9 153.67 0)
+    (property "Value" "SKQGAFE010" (at 91.44 153.67 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Button_Switch_SMD:SW_SPST_SKQG_WithStem" (at 88.9 153.67 0)
+    (property "Footprint" "Button_Switch_SMD:SW_SPST_SKQG_WithStem" (at 91.44 153.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 88.9 153.67 0)
+    (property "Datasheet" "~" (at 91.44 153.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "LCSC" "C202424" (at 88.9 158.75 0)
+    (property "LCSC" "C202424" (at 91.44 158.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 0b968d04-96f8-470b-b3b4-5c5cb6703c48))
     (pin "2" (uuid 2ba6ba19-5922-4481-a399-ef2b4a3dde7f))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW22") (unit 1)
         )
@@ -5005,7 +5027,7 @@
     (pin "1" (uuid 092d03fb-ae1b-491f-bbfb-4b6321721968))
     (pin "2" (uuid 1c931da7-0a10-4c3f-9710-e5168c39518f))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R1") (unit 1)
         )
@@ -5030,7 +5052,7 @@
     )
     (pin "1" (uuid a569e531-1d0b-4cc1-a50b-a494a55c9c9d))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR029") (unit 1)
         )
@@ -5056,7 +5078,7 @@
     (pin "1" (uuid d85cd986-0bb3-44a7-882c-f1538c324724))
     (pin "2" (uuid 69967024-e2f3-4bb5-8bfa-5b91626efe9e))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C11") (unit 1)
         )
@@ -5082,7 +5104,7 @@
     (pin "1" (uuid de30f4aa-fcfe-42de-92ff-1d617102a2ca))
     (pin "2" (uuid 085ff3d9-d57f-4edb-b6f1-4a8aec30d951))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW15") (unit 1)
         )
@@ -5107,7 +5129,7 @@
     )
     (pin "1" (uuid 0d86d63b-0e14-4c5e-bf3d-3873b8e03084))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR06") (unit 1)
         )
@@ -5115,24 +5137,24 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 104.14 140.97 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 109.22 134.62 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 91e23f36-f8ba-45d9-9d99-eae1f025dec4)
-    (property "Reference" "#PWR038" (at 104.14 147.32 0)
+    (property "Reference" "#PWR038" (at 109.22 140.97 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 104.14 145.1055 0)
+    (property "Value" "GND" (at 109.22 138.7555 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 104.14 140.97 0)
+    (property "Footprint" "" (at 109.22 134.62 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 104.14 140.97 0)
+    (property "Datasheet" "" (at 109.22 134.62 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 946c2e28-9d05-4b6f-af9b-70fa3a984037))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR038") (unit 1)
         )
@@ -5157,7 +5179,7 @@
     )
     (pin "1" (uuid 3c50bcbd-b7e1-47ea-8a17-923d3eb222c4))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR023") (unit 1)
         )
@@ -5182,7 +5204,7 @@
     )
     (pin "1" (uuid 425bea21-e07f-4d19-9cca-df923ba5f631))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR03") (unit 1)
         )
@@ -5213,7 +5235,7 @@
     (pin "3" (uuid f74b675d-4d2b-4a0b-abb8-c3641b0d7f99))
     (pin "4" (uuid 358d42b3-339b-4f7f-9ed4-8cd0ba9917c9))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "J4") (unit 1)
         )
@@ -5239,7 +5261,7 @@
     (pin "1" (uuid 80ad8fda-ae39-42e4-b24d-03e44c65228a))
     (pin "2" (uuid 66fd77ce-7b2e-4d94-851d-c8c20ddc716c))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R2") (unit 1)
         )
@@ -5264,7 +5286,7 @@
     )
     (pin "1" (uuid e6897a5e-60a6-46b6-b95d-c568854300a4))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR011") (unit 1)
         )
@@ -5289,7 +5311,7 @@
     )
     (pin "1" (uuid ed7a423e-c01b-4e0a-a25d-ae450425fc90))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR037") (unit 1)
         )
@@ -5317,7 +5339,7 @@
     (pin "3" (uuid de58c602-582e-4d77-931c-6b3921e5c075))
     (pin "4" (uuid 6ede71a5-9040-401d-863c-3d3451f30dad))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "J3") (unit 1)
         )
@@ -5328,10 +5350,10 @@
   (symbol (lib_id "Device:RotaryEncoder_Switch") (at 262.89 144.78 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a1d99f95-ad6f-450e-8ac0-fca02b234440)
-    (property "Reference" "SW24" (at 262.89 134.62 0)
+    (property "Reference" "SW25" (at 262.89 136.6901 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "RotaryEncoder_Switch" (at 262.89 137.16 0)
+    (property "Value" "RotaryEncoder_Switch" (at 262.89 138.6111 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm" (at 259.08 140.716 0)
@@ -5346,9 +5368,9 @@
     (pin "S1" (uuid 3e2924fd-8e4f-42cb-9551-729d9e3667f6))
     (pin "S2" (uuid e2368199-513a-4f78-9366-b0ae71376c99))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
-          (reference "SW24") (unit 1)
+          (reference "SW25") (unit 1)
         )
       )
     )
@@ -5376,7 +5398,7 @@
     (pin "2" (uuid 6b714ae1-f470-46a6-ade2-4c8c9b64305c))
     (pin "3" (uuid 1e61c03f-4f49-4061-81f6-03241fdb0743))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "U3") (unit 1)
         )
@@ -5384,24 +5406,24 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 107.95 191.77 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 110.49 191.77 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a694c220-ef0e-4281-91f8-5d1d329f4352)
-    (property "Reference" "#PWR040" (at 107.95 198.12 0)
+    (property "Reference" "#PWR040" (at 110.49 198.12 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 107.95 195.9055 0)
+    (property "Value" "GND" (at 110.49 195.9055 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 107.95 191.77 0)
+    (property "Footprint" "" (at 110.49 191.77 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 107.95 191.77 0)
+    (property "Datasheet" "" (at 110.49 191.77 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid fbf8c185-91b4-4fb2-b505-5181877ac183))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR040") (unit 1)
         )
@@ -5426,7 +5448,7 @@
     )
     (pin "1" (uuid dd6cbf31-e20f-43e4-be73-18f8179d5e66))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR052") (unit 1)
         )
@@ -5453,7 +5475,7 @@
     (pin "2" (uuid a4fd6731-e9fe-4261-858a-9b0c8be88465))
     (pin "3" (uuid a86b8b98-a083-476a-9766-232fbc167dc9))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "ML-SW1") (unit 1)
         )
@@ -5478,7 +5500,7 @@
     )
     (pin "1" (uuid 2a62a9c5-751a-4a01-a1e4-a48d30582317))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR027") (unit 1)
         )
@@ -5504,7 +5526,7 @@
     (pin "1" (uuid 16c7f056-30b3-4950-986d-d00e45c9215d))
     (pin "2" (uuid b88d07b4-cd44-410b-b895-9c4c20bc0aa1))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW1") (unit 1)
         )
@@ -5530,7 +5552,7 @@
     (pin "1" (uuid a6686f95-cdf9-4794-99e0-9a4a89651c5b))
     (pin "2" (uuid 3e5c0847-022d-4c00-8108-40abcefe60fc))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C7") (unit 1)
         )
@@ -5555,7 +5577,7 @@
     )
     (pin "1" (uuid 4c6f89ca-6bc3-43b7-8ac6-4d7ee7443712))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR018") (unit 1)
         )
@@ -5563,25 +5585,25 @@
     )
   )
 
-  (symbol (lib_id "Device:R") (at 96.52 163.83 180) (unit 1)
+  (symbol (lib_id "Device:R") (at 99.06 163.83 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid ae972ced-8c4f-4ca0-8ba5-d2fd76dfa504)
-    (property "Reference" "R5" (at 99.06 162.56 0)
+    (property "Reference" "R5" (at 101.6 162.56 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "1k" (at 99.06 165.1 0)
+    (property "Value" "1k" (at 101.6 165.1 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 98.298 163.83 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 100.838 163.83 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 96.52 163.83 0)
+    (property "Datasheet" "~" (at 99.06 163.83 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 128b3055-92d6-438b-9111-a9935a95c06a))
     (pin "2" (uuid 893ccc0e-c47d-4054-a5a6-a47312025c5b))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R5") (unit 1)
         )
@@ -5606,7 +5628,7 @@
     )
     (pin "1" (uuid b65e44a0-6378-4334-9557-ce9dca140b4c))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR042") (unit 1)
         )
@@ -5631,7 +5653,7 @@
     )
     (pin "1" (uuid 3807b93f-d701-4d56-8aa7-9adb652a35cf))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR065") (unit 1)
         )
@@ -5656,7 +5678,7 @@
     )
     (pin "1" (uuid 2f48e8e9-4f42-42c3-932b-36494ac34282))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR04") (unit 1)
         )
@@ -5682,7 +5704,7 @@
     (pin "1" (uuid fe49056d-12d8-4656-8612-ba57d8864e61))
     (pin "2" (uuid 1f396936-059d-4b81-b91c-30313ba940f0))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C4") (unit 1)
         )
@@ -5708,7 +5730,7 @@
     (pin "1" (uuid 02365ee1-d505-45f9-a9c3-465929ea1cf2))
     (pin "2" (uuid d54cc1d5-da5c-4d38-90be-3fc6d86659c0))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW6") (unit 1)
         )
@@ -5733,7 +5755,7 @@
     )
     (pin "1" (uuid 4da26bc3-1674-4048-a18e-f480b504d675))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR035") (unit 1)
         )
@@ -5759,7 +5781,7 @@
     (pin "1" (uuid b0ff9043-1aba-42dd-a744-593244a8c0f0))
     (pin "2" (uuid c61fd731-9708-4ae6-b7bf-e8e0c3cf0503))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW8") (unit 1)
         )
@@ -5785,7 +5807,7 @@
     (pin "1" (uuid 1e0a06a7-1223-4ac8-818b-b12c9363f6ef))
     (pin "2" (uuid 47c1a8f3-d6a3-4b1b-8433-6ec5e9007a31))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C12") (unit 1)
         )
@@ -5810,7 +5832,7 @@
     )
     (pin "1" (uuid 44111fff-6f58-4084-8f23-2af397d3573e))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR019") (unit 1)
         )
@@ -5836,7 +5858,7 @@
     (pin "1" (uuid 95eccf03-6156-4b73-a535-d036f359ea87))
     (pin "2" (uuid 7e4122b6-a3ba-4793-ad5f-0c69b1f12cc2))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C18") (unit 1)
         )
@@ -5844,24 +5866,24 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 130.81 176.53 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 133.35 176.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid bf9b977b-9388-4120-8675-e162604cdd10)
-    (property "Reference" "#PWR048" (at 130.81 182.88 0)
+    (property "Reference" "#PWR048" (at 133.35 182.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 130.81 180.6655 0)
+    (property "Value" "GND" (at 133.35 180.6655 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 130.81 176.53 0)
+    (property "Footprint" "" (at 133.35 176.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 130.81 176.53 0)
+    (property "Datasheet" "" (at 133.35 176.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid c37750ef-80ab-4042-bf4f-fda60fcfe6e9))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR048") (unit 1)
         )
@@ -5886,7 +5908,7 @@
     )
     (pin "1" (uuid 1286caf1-1a94-4377-94e6-a61264288360))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR017") (unit 1)
         )
@@ -5970,7 +5992,7 @@
     (pin "8" (uuid 8d7ae6a1-063e-49c4-a762-55151d50d273))
     (pin "9" (uuid 86234966-f667-4d08-8e1f-a6b7a4d014f3))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "U1") (unit 1)
         )
@@ -5995,7 +6017,7 @@
     )
     (pin "1" (uuid 56ca9724-524b-46c8-9ec7-61f4f8a25c87))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR09") (unit 1)
         )
@@ -6020,7 +6042,7 @@
     )
     (pin "1" (uuid 0780b919-82b8-4cd8-9812-b8efb8b7a6bc))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR015") (unit 1)
         )
@@ -6028,24 +6050,24 @@
     )
   )
 
-  (symbol (lib_id "power:+3.3V") (at 107.95 161.29 0) (unit 1)
+  (symbol (lib_id "power:+3.3V") (at 110.49 161.29 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c738df8a-8bb5-4bd3-8fd3-e530dafa944b)
-    (property "Reference" "#PWR039" (at 107.95 165.1 0)
+    (property "Reference" "#PWR039" (at 110.49 165.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "+3.3V" (at 107.95 157.7881 0)
+    (property "Value" "+3.3V" (at 110.49 157.7881 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 107.95 161.29 0)
+    (property "Footprint" "" (at 110.49 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 107.95 161.29 0)
+    (property "Datasheet" "" (at 110.49 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 504b0627-160c-472b-a718-cc1fccc47010))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR039") (unit 1)
         )
@@ -6070,7 +6092,7 @@
     )
     (pin "1" (uuid 23bda353-e35f-4d75-8106-58d10dfd70c4))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR010") (unit 1)
         )
@@ -6095,7 +6117,7 @@
     )
     (pin "1" (uuid 5d96b17b-69a5-4133-adbe-133a5ba5e71c))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR033") (unit 1)
         )
@@ -6121,7 +6143,7 @@
     (pin "1" (uuid 522eec21-b1b9-4187-a2f6-d6df54134a62))
     (pin "2" (uuid 350c20f5-059c-4e90-8111-413438e923b8))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R12") (unit 1)
         )
@@ -6146,7 +6168,7 @@
     )
     (pin "1" (uuid 6186e4d9-61ea-4cbe-86da-760c51a3b429))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR053") (unit 1)
         )
@@ -6171,7 +6193,7 @@
     )
     (pin "1" (uuid 1ef0326d-cdf8-45aa-b51a-fa5217cc0a81))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR054") (unit 1)
         )
@@ -6196,7 +6218,7 @@
     )
     (pin "1" (uuid e0f79c28-7698-4672-b3ba-0c69d62b2947))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR036") (unit 1)
         )
@@ -6222,7 +6244,7 @@
     (pin "1" (uuid cf3fd8b7-df29-4ddc-af2f-dad77ed2a596))
     (pin "2" (uuid 566d4f56-6d72-400d-8bb5-2d226788b780))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW19") (unit 1)
         )
@@ -6247,7 +6269,7 @@
     )
     (pin "1" (uuid 6a03e029-259d-4164-8413-502f8ee76f71))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR046") (unit 1)
         )
@@ -6273,7 +6295,7 @@
     (pin "1" (uuid 48dda6d2-fd05-452f-9448-a291ae2cea8e))
     (pin "2" (uuid 04faf99f-b498-493d-b7fa-34ab8e702f73))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW21") (unit 1)
         )
@@ -6299,7 +6321,7 @@
     (pin "1" (uuid 9e53d09e-a14c-41b8-b2f9-0d33006ad47e))
     (pin "2" (uuid 0f004232-db98-4bf6-b402-72d5f9f7ecb3))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "R11") (unit 1)
         )
@@ -6326,7 +6348,7 @@
     (pin "2" (uuid eea82f87-ab7e-49b0-9f1a-d80817dd238b))
     (pin "3" (uuid c923bcc8-6f9e-42f2-96a3-6400d2d4b2e1))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "ML-SW2") (unit 1)
         )
@@ -6352,7 +6374,7 @@
     (pin "1" (uuid ba33d76c-db7f-4eec-8a01-37c98dc3ad6c))
     (pin "2" (uuid 4f3d8b3a-a61a-4364-b092-802df6da8701))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW16") (unit 1)
         )
@@ -6377,7 +6399,7 @@
     )
     (pin "1" (uuid 8b6605b3-ed30-4445-b41b-03632e6cc972))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR062") (unit 1)
         )
@@ -6403,9 +6425,38 @@
     (pin "1" (uuid fcf79e99-5b5c-43b7-9415-9a24adabebcd))
     (pin "2" (uuid 441cccd9-7ebc-4ee3-b0cd-8921b881846c))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C3") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Switch:SW_Push") (at 91.44 146.05 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid d8ac33a6-21be-4023-8cbc-03c4a5a4fe06)
+    (property "Reference" "SW23" (at 91.44 140.1191 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SKQGAFE010" (at 91.44 142.0401 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Button_Switch_SMD:SW_SPST_SKQG_WithStem" (at 91.44 140.97 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 91.44 140.97 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "LCSC" "C202424" (at 91.44 146.05 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 3bf6a4c4-c46a-442f-b215-38ec0d8885ee))
+    (pin "2" (uuid ea979e3e-69a0-421b-838e-0c714b7f0f07))
+    (instances
+      (project "Reference_Keyboard"
+        (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
+          (reference "SW23") (unit 1)
         )
       )
     )
@@ -6429,7 +6480,7 @@
     (pin "1" (uuid 116f3807-cf6a-4157-a1d1-e7febe652239))
     (pin "2" (uuid 0e6641d0-dc30-4623-90d2-000d4acd2bbc))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW7") (unit 1)
         )
@@ -6454,7 +6505,7 @@
     )
     (pin "1" (uuid 8384e2b8-28fe-45a2-8c89-efc829c4a582))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR066") (unit 1)
         )
@@ -6479,7 +6530,7 @@
     )
     (pin "1" (uuid 4c21a5be-1337-44a8-81b7-2bdd76194b5b))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR032") (unit 1)
         )
@@ -6505,7 +6556,7 @@
     (pin "1" (uuid c963ed6b-4484-41fa-b24c-342a97ceb305))
     (pin "2" (uuid 521d5df6-a67f-45f7-9246-6c4e976eea57))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C17") (unit 1)
         )
@@ -6530,7 +6581,7 @@
     )
     (pin "1" (uuid b73f4405-a0e8-4ebb-beb9-ad1452565ddd))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR05") (unit 1)
         )
@@ -6555,7 +6606,7 @@
     )
     (pin "1" (uuid 7b1fa70b-4653-4cc3-b753-d9d1b0b67e7b))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR049") (unit 1)
         )
@@ -6580,7 +6631,7 @@
     )
     (pin "1" (uuid a3d9a6d0-4924-4163-87f7-e4a583dfcfc7))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR024") (unit 1)
         )
@@ -6588,24 +6639,24 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 81.28 160.02 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 83.82 160.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e080ecba-f3c1-4990-9568-7f2e66b50b5c)
-    (property "Reference" "#PWR031" (at 81.28 166.37 0)
+    (property "Reference" "#PWR031" (at 83.82 166.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 81.28 164.1555 0)
+    (property "Value" "GND" (at 83.82 164.1555 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 81.28 160.02 0)
+    (property "Footprint" "" (at 83.82 160.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 81.28 160.02 0)
+    (property "Datasheet" "" (at 83.82 160.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 81a2a508-ad51-4c02-b747-98dcf6f94874))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR031") (unit 1)
         )
@@ -6613,25 +6664,25 @@
     )
   )
 
-  (symbol (lib_id "Device:C") (at 130.81 168.91 0) (unit 1)
+  (symbol (lib_id "Device:C") (at 133.35 168.91 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e3099ce4-c6df-470e-aa09-41189c7ccbff)
-    (property "Reference" "C10" (at 134.62 167.64 0)
+    (property "Reference" "C10" (at 137.16 167.64 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "0.1u" (at 134.62 170.18 0)
+    (property "Value" "0.1u" (at 137.16 170.18 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 131.7752 172.72 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 134.3152 172.72 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 130.81 168.91 0)
+    (property "Datasheet" "~" (at 133.35 168.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 8feeeda1-200c-4054-8078-73a58832638d))
     (pin "2" (uuid e43ae35e-804c-40ae-931d-9e1bca1625be))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C10") (unit 1)
         )
@@ -6656,7 +6707,7 @@
     )
     (pin "1" (uuid cbd1ee8d-9f42-4c14-a7b9-43dafde196ed))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR047") (unit 1)
         )
@@ -6681,7 +6732,7 @@
     )
     (pin "1" (uuid 290e4589-1063-4c49-b09c-40371ce65717))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR059") (unit 1)
         )
@@ -6706,7 +6757,7 @@
     )
     (pin "1" (uuid 621153cd-d3f5-4a1a-98dd-a5106e9f60b7))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR064") (unit 1)
         )
@@ -6732,7 +6783,7 @@
     (pin "1" (uuid 92090392-36fa-4dc3-9acb-f6e0dca9a03b))
     (pin "2" (uuid 6329f10d-65e4-4aa8-977f-af2466254c2d))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C2") (unit 1)
         )
@@ -6757,7 +6808,7 @@
     )
     (pin "1" (uuid be70e4ce-7b53-4a3d-8bdc-91a6bdef9a8b))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR060") (unit 1)
         )
@@ -6765,25 +6816,25 @@
     )
   )
 
-  (symbol (lib_id "Device:C") (at 120.65 168.91 0) (unit 1)
+  (symbol (lib_id "Device:C") (at 123.19 168.91 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid eafc284a-b3ed-4c67-a9dc-d829d6a1c8ca)
-    (property "Reference" "C9" (at 124.46 167.64 0)
+    (property "Reference" "C9" (at 127 167.64 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "2.2u" (at 124.46 170.18 0)
+    (property "Value" "2.2u" (at 127 170.18 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 121.6152 172.72 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 124.1552 172.72 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 120.65 168.91 0)
+    (property "Datasheet" "~" (at 123.19 168.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid f0740922-ef7b-4cf3-b054-8ad65f196845))
     (pin "2" (uuid 5ee70235-4077-4968-98e5-42b7475a7bba))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "C9") (unit 1)
         )
@@ -6807,7 +6858,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "H2") (unit 1)
         )
@@ -6832,7 +6883,7 @@
     )
     (pin "1" (uuid bc5cd83c-fd83-440b-986b-63717b5c299f))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR045") (unit 1)
         )
@@ -6876,7 +6927,7 @@
     (pin "B9" (uuid 121af974-da35-4045-ab49-067149d85fa9))
     (pin "S1" (uuid 8ad8901e-2d90-4262-a069-5474755daffc))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "J2") (unit 1)
         )
@@ -6902,7 +6953,7 @@
     (pin "1" (uuid e174c3b3-df02-4eb3-bd9d-6280c6c49049))
     (pin "2" (uuid 347ce5e4-5b19-433a-88ed-1beaeb41b4fc))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "SW9") (unit 1)
         )
@@ -6927,7 +6978,7 @@
     )
     (pin "1" (uuid 82fa3390-14c1-4629-8fd5-11df46143fe3))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR013") (unit 1)
         )
@@ -6952,7 +7003,7 @@
     )
     (pin "1" (uuid dbbfec05-714c-48f3-971f-f1485d5b828d))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR014") (unit 1)
         )
@@ -6977,7 +7028,7 @@
     )
     (pin "1" (uuid 1e9e18b6-29e7-4325-93d3-6be7673d3017))
     (instances
-      (project "WASD_0.1"
+      (project "Reference_Keyboard"
         (path "/488c5a2d-543b-4375-8161-9a6838fbf02d"
           (reference "#PWR028") (unit 1)
         )

@@ -1,0 +1,6 @@
+board/Reference_Keyboard/production/*
+board/Reference_Keyboard/Reference_Keyboard-backups/*
+board/SSD1306_FFC_Adapter/production/*
+board/SSD1306_FFC_Adapter/SSD1306_FFC_Adapter-backups/*
+*fp-info-cache
+*.uf2

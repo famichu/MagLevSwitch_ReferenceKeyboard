@@ -46,6 +46,9 @@ MaglevSwitchBoard::MaglevSwitchBoard(char* swCodesLayer1, char* swCodesLayer2,
         swNum_++;
       }
     }
+    
+    swCodes_    = swCodesLayer1_;
+    mlswCodes_  = mlswCodesLayer1_;
 }
 
 bool MaglevSwitchBoard::switchGpioInit(void){
