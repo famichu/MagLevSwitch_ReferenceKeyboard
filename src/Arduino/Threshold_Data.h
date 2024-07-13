@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#ifndef THRESHOLDDATA_H
+#define THRESHOLDDATA_H
+
 class ThresholdData
 {
   private:
@@ -28,4 +31,8 @@ class ThresholdData
     uint16_t getAbsoluted();
     float getNormalized();
     uint8_t* getAbsolutedBytes();
+
+    ThresholdData& operator=(const ThresholdData& other);
 };
+
+#endif

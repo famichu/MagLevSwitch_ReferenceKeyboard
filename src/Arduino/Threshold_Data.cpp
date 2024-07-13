@@ -48,3 +48,13 @@ float ThresholdData::normalizeValue(uint16_t value){
 uint16_t ThresholdData::absoluteValue(float value){
   return (uint16_t)(value * (float)range) + lowerLimit;
 }
+
+ThresholdData& ThresholdData::operator=(const ThresholdData& other){
+  if(this != &other){
+    absoluted = other.absoluted;
+    normalized = other.normalized;
+    lowerLimit = other.lowerLimit;
+    range = other.range;
+  }
+  return *this;
+}
