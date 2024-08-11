@@ -22,11 +22,11 @@ class Setting{
         Setting();
         Setting(uint16_t softwareVersion);
         bool Initialize(void);
-        bool Initialize(uint16_t hardwareVersion);
+        Config Initialize(uint16_t hardwareVersion);
         uint8_t Calibration(Adafruit_SSD1306& display, uint8_t page);
         void SetThresholds(ThresholdData* actuationThresholds, ThresholdData* releaseThresholds);
         bool SetKeymap(uint8_t* map, uint8_t keynum);
-        void Save(void);
+        void Save(Config config_);
         Config Load();
         Config getConfig() const;
     private: 

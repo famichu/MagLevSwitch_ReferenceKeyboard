@@ -3,6 +3,7 @@
 
 Setting::Setting(uint16_t softwareVersion){
     config.SoftwareVersion = softwareVersion;
+    config.HardwareVersion = 0;
 }
 
 bool Setting::Initialize(){
@@ -16,9 +17,9 @@ bool Setting::Initialize(){
     return result;
 }
 
-bool Setting::Initialize(uint16_t hardwareVersion){
+Config Setting::Initialize(uint16_t hardwareVersion){
     // デフォルト値読み込み
-    
+    config.HardwareVersion = hardwareVersion;
     switch(hardwareVersion){
         case 100: {
             uint8_t keymapL1[28] = {
@@ -70,7 +71,7 @@ bool Setting::Initialize(uint16_t hardwareVersion){
         config.ReleaseThresholds[i] = ThresholdData((uint16_t)1490, MLSW_LOWER_LIMIT, MLSW_RANGE);
     }
 
-    return true;
+    return config;
 }
 
 void Setting::SetThresholds(ThresholdData* actuationThresholds, ThresholdData* releaseThresholds){
@@ -84,16 +85,16 @@ Config Setting::Load(){
     const uint32_t FLASH_TARGET_OFFSET = 0x1F0000;
     const uint8_t *flash_target_contents = (const uint8_t *) (XIP_BASE + FLASH_TARGET_OFFSET);
 
-    uint8_t data_cnt = 3;
+    uint8_t data_cnt = 5;
     uint8_t load = flash_target_contents[0];
 
     if(load == 1){
         load_succeeded = true;
         
+        config.SoftwareVersion = uint16_t(flash_target_contents[1]) | ((uint16_t)flash_target_contents[2] << 8);
+        config.HardwareVersion = uint16_t(flash_target_contents[3]) | ((uint16_t)flash_target_contents[4] << 8);
+        
         uint8_t bytes[2];
-        config.SoftwareVersion = (flash_target_contents[1] << 8);
-        config.SoftwareVersion = (config.SoftwareVersion | flash_target_contents[2]);
-
         for(int i = 0; i < MLSW_NUM; i++){
             for(int j = 0; j < 2; j++){
                 bytes[j] = flash_target_contents[data_cnt];
@@ -106,6 +107,20 @@ Config Setting::Load(){
                 data_cnt++;
             }
             config.ReleaseThresholds[i].setAbsoluteBytes(bytes[0], bytes[1]);
+            
+            for(int j = 0; j < 2; j++){
+                bytes[j] = flash_target_contents[data_cnt];
+                data_cnt++;
+            }
+            config.ReleaseThresholds[i].setLowerLimitBytes(bytes[0], bytes[1]);
+            config.ActuationThresholds[i].setLowerLimitBytes(bytes[0], bytes[1]);
+            
+            for(int j = 0; j < 2; j++){
+                bytes[j] = flash_target_contents[data_cnt];
+                data_cnt++;
+            }
+            config.ReleaseThresholds[i].setRangeBytes(bytes[0], bytes[1]);
+            config.ActuationThresholds[i].setRangeBytes(bytes[0], bytes[1]);
         }
 
         for(int i = 0; i < 28; i++){
@@ -122,16 +137,21 @@ Config Setting::Load(){
     return config;
 }
 
-void Setting::Save(){
+void Setting::Save(Config config_){
+    config = config_;
+
     const uint32_t FLASH_TARGET_OFFSET = 0x1F0000; // W25Q16JVの最終ブロック(Block31)のセクタ0の先頭アドレス = 0x1F0000
     uint8_t write_data[FLASH_PAGE_SIZE]; // // W25Q16JVの書き込み最小単位 = FLASH_PAGE_SIZE(256Byte)
     
     uint32_t ints = save_and_disable_interrupts();
 
     write_data[0] = 1;
-    write_data[1] = (config.SoftwareVersion >> 8) & 0xFF;
-    write_data[2] = config.SoftwareVersion & 0xFF;
-    uint8_t data_cnt = 2;
+    write_data[1] = config.SoftwareVersion & 0xFF;
+    write_data[2] = (config.SoftwareVersion >> 8) & 0xFF;
+    write_data[3] = config.HardwareVersion & 0xFF;
+    write_data[4] = (config.HardwareVersion >> 8) & 0xFF;
+    
+    uint8_t data_cnt = 5;
 
     for(int i = 0; i < MLSW_NUM; i++){
         uint8_t* bytes = config.ActuationThresholds[i].getAbsolutedBytes();
@@ -141,6 +161,18 @@ void Setting::Save(){
         }
         
         bytes = config.ReleaseThresholds[i].getAbsolutedBytes();
+        for(int j = 0; j < 2; j++){
+            write_data[data_cnt] = bytes[j];
+            data_cnt++;
+        }
+        
+        bytes = config.ReleaseThresholds[i].getLowerLimitBytes();
+        for(int j = 0; j < 2; j++){
+            write_data[data_cnt] = bytes[j];
+            data_cnt++;
+        }
+        
+        bytes = config.ReleaseThresholds[i].getRangeBytes();
         for(int j = 0; j < 2; j++){
             write_data[data_cnt] = bytes[j];
             data_cnt++;

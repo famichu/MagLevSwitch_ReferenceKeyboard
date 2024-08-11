@@ -116,13 +116,8 @@ uint16_t HwVersion = 0;
 
 // MagLevSwitch Thresholds
 // prototype
-void saveSettings();
-bool loadSettings();
 float calcNormalizedValue(uint16_t);
 float calcAbsoluteValue(uint16_t);
-
-ThresholdData* G_ACTUATION_DEPTH;
-ThresholdData* G_RELEASE_DEPTH;
 
 // Output char codes array
 uint8_t outCodes[6] = {0};
@@ -146,16 +141,15 @@ void setup() {
   hid_init();
   #endif
   
-//  if(loadSettings() == false) {
-  if(true) {
+  resetWizard();
+
+  if(setting.Initialize() == false) {
     calibrationWizard();
-    setting.Initialize(HwVersion);
   }
   config = setting.getConfig();
-  board = new MaglevSwitchBoard(HwVersion, config.KeymapL1, config.KeymapL2, 
+
+  board = new MaglevSwitchBoard(config.HardwareVersion, config.KeymapL1, config.KeymapL2, 
       config.ActuationThresholds, config.ReleaseThresholds, outCodes);
-  G_ACTUATION_DEPTH = config.ActuationThresholds;
-  G_RELEASE_DEPTH = config.ReleaseThresholds;
 
   showLogo();
 
@@ -219,7 +213,7 @@ void loop() {
 
      if(G_OLEDSTATE == 9){
          sem_acquire_blocking(&semaphoere);
-         saveSettings();
+         setting.Save(config);
          sem_release(&semaphoere);
          break;
      }
@@ -266,7 +260,9 @@ void updateOled(uint8_t* codes, uint8_t cnt, float values[4], double position, i
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(0, 10);
-    display.println("MagLev Switch MX!");
+    display.println("MagLev Switch MX");
+    display.setCursor(100, 10);
+    display.println(config.HardwareVersion);
 
    for(int i = 0; i < 4; i++){
      display.setCursor(0, (20 + 10 * i));
@@ -275,12 +271,14 @@ void updateOled(uint8_t* codes, uint8_t cnt, float values[4], double position, i
 
    for(int i = 0; i < 4; i++){
      display.setCursor(30, (20 + 10 * i));
-     display.println(G_ACTUATION_DEPTH[i].getAbsoluted());
+     display.println(config.ActuationThresholds[i].getNormalized());
+     // display.println(config.ActuationThresholds[i].getAbsoluted());
    }
    
    for(int i = 0; i < 4; i++){
      display.setCursor(60, (20 + 10 * i));
-     display.println(G_RELEASE_DEPTH[i].getAbsoluted());
+     display.println(config.ReleaseThresholds[i].getNormalized());
+     // display.println(config.ReleaseThresholds[i].getAbsoluted());
    }
     
     display.setCursor(100, 20);
@@ -300,9 +298,10 @@ void updateOled(uint8_t* codes, uint8_t cnt, float values[4], double position, i
     graph.cursor = oledState;
     for (int i = 0; i < NUM_BARS; ++i) {;
       graph.setBarValue(i,  values[i]);
-      graph.setBarThresholds(i, 
-        G_RELEASE_DEPTH[i].getNormalized(),
-        G_ACTUATION_DEPTH[i].getNormalized());
+      graph.setBarThresholds(
+        i, 
+        config.ReleaseThresholds[i].getNormalized(),
+        config.ActuationThresholds[i].getNormalized());
     }
     graph.draw(display);
     #endif
@@ -355,27 +354,27 @@ void increaseThreshold(uint8_t state, bool increasing){
   }
 
   if(offset == 0) {
-    uint16_t result = G_ACTUATION_DEPTH[index].getAbsoluted() + incremental;
-    if(result < (MLSW_UPPER_LIMIT - 2) && result >= G_RELEASE_DEPTH[index].getAbsoluted()){
-      G_ACTUATION_DEPTH[index].setAbsolute(result);
+    uint16_t result = config.ActuationThresholds[index].getAbsoluted() + incremental;
+    if(result < (MLSW_UPPER_LIMIT - 2) && result >= config.ReleaseThresholds[index].getAbsoluted()){
+      config.ActuationThresholds[index].setAbsolute(result);
     }
     else if(result >= (MLSW_UPPER_LIMIT - 2)){
-      G_ACTUATION_DEPTH[index].setAbsolute(MLSW_UPPER_LIMIT - 3);
+      config.ActuationThresholds[index].setAbsolute(MLSW_UPPER_LIMIT - 3);
     }
-    else if(result < G_RELEASE_DEPTH[index].getAbsoluted()){
-      G_ACTUATION_DEPTH[index].setAbsolute(G_RELEASE_DEPTH[index].getAbsoluted());
+    else if(result < config.ReleaseThresholds[index].getAbsoluted()){
+      config.ActuationThresholds[index].setAbsolute(config.ReleaseThresholds[index].getAbsoluted());
     }
   }
   else{
-    uint16_t result = G_RELEASE_DEPTH[index].getAbsoluted() + incremental;
-    if(result <= G_ACTUATION_DEPTH[index].getAbsoluted() && result > (MLSW_LOWER_LIMIT + 50)){
-      G_RELEASE_DEPTH[index].setAbsolute(result);
+    uint16_t result = config.ReleaseThresholds[index].getAbsoluted() + incremental;
+    if(result <= config.ActuationThresholds[index].getAbsoluted() && result > (MLSW_LOWER_LIMIT + 50)){
+      config.ReleaseThresholds[index].setAbsolute(result);
     }
-    else if(result > G_ACTUATION_DEPTH[index].getAbsoluted()){
-      G_RELEASE_DEPTH[index].setAbsolute(G_ACTUATION_DEPTH[index].getAbsoluted());
+    else if(result > config.ActuationThresholds[index].getAbsoluted()){
+      config.ReleaseThresholds[index].setAbsolute(config.ActuationThresholds[index].getAbsoluted());
     }
     else if(result <= (MLSW_LOWER_LIMIT + 50)){
-      G_RELEASE_DEPTH[index].setAbsolute(MLSW_LOWER_LIMIT + 51);
+      config.ReleaseThresholds[index].setAbsolute(MLSW_LOWER_LIMIT + 51);
     }
   }
 }
@@ -430,70 +429,18 @@ float calcNormalizedValue(uint16_t value){
 uint16_t calcAbsoluteValue(float value){
   return uint16_t(value * MLSW_RANGE) + MLSW_LOWER_LIMIT;
 }
-
-void saveSettings(){
+ 
+void eraseSettings(){
   const uint32_t FLASH_TARGET_OFFSET = 0x1F0000; // The head address of the final block(block32) of the W25Q16JV: 0x1F0000
-  uint8_t write_data[FLASH_PAGE_SIZE]; // // Minimum writing size of the W25Q16JV: FLASH_PAGE_SIZE(256Byte)
   
   uint32_t ints = save_and_disable_interrupts();
-
-  write_data[0] = 1;
-  write_data[1] = SwVersion;
-  uint8_t data_cnt = 2;
-
-  for(int i = 0; i < MLSW_NUM; i++){
-    uint8_t* bytes = G_ACTUATION_DEPTH[i].getAbsolutedBytes();
-    for(int j = 0; j < 2; j++){
-      write_data[data_cnt] = bytes[j];
-      data_cnt++;
-    }
-    
-    bytes = G_RELEASE_DEPTH[i].getAbsolutedBytes();
-    for(int j = 0; j < 2; j++){
-       write_data[data_cnt] = bytes[j];
-      data_cnt++;
-    }
-  }
-  
   flash_range_erase(FLASH_TARGET_OFFSET, FLASH_SECTOR_SIZE);
-  flash_range_program(FLASH_TARGET_OFFSET, write_data, FLASH_PAGE_SIZE);
   restore_interrupts(ints);
 }
 
-bool loadSettings(){
-  bool result = false;
-  const uint32_t FLASH_TARGET_OFFSET = 0x1F0000;
-  const uint8_t *flash_target_contents = (const uint8_t *) (XIP_BASE + FLASH_TARGET_OFFSET);
-
-  uint8_t data_cnt = 2;
-  uint8_t saved = flash_target_contents[0];
-
-  if(saved == 1){
-    result = true;
-    uint8_t version = flash_target_contents[1];
-
-    for(int i = 0; i < MLSW_NUM; i++){
-      uint8_t bytes[2];
-      for(int j = 0; j < 2; j++){
-        bytes[j] = flash_target_contents[data_cnt];
-        data_cnt++;
-      }
-      G_ACTUATION_DEPTH[i].setAbsoluteBytes(bytes[0], bytes[1]);
-      
-      for(int j = 0; j < 2; j++){
-        bytes[j] = flash_target_contents[data_cnt];
-        data_cnt++;
-      }
-      G_RELEASE_DEPTH[i].setAbsoluteBytes(bytes[0], bytes[1]);
-    }
-  }
-
-  return result;
-}
- 
 void calibrationWizard(){
   calibrationGpioInit();
-  HwVersion = judgeHwVersion();
+  config = setting.Initialize(detectHwVersion());
   
   while(gpio_get(13)){
     delay(50);
@@ -504,7 +451,7 @@ void calibrationWizard(){
   clear_gpio(25);
   clear_gpio(13);
   
-  saveSettings();
+  setting.Save(config);
 }
 
 void calibrationGpioInit(){
@@ -528,7 +475,7 @@ void calibrationGpioInit(){
   gpio_set_dir(13, GPIO_IN);
 }
 
-uint16_t judgeHwVersion(){
+uint16_t detectHwVersion(){
   uint16_t result = 0;
   
   gpio_put(9, 0);
@@ -541,11 +488,11 @@ uint16_t judgeHwVersion(){
   display.println("Calibration wizard");
   display.setCursor(0, 20);
   
-  display.println("Please press the key at");
+  display.println("Please press the key");
   display.setCursor(0, 28);
-  display.println("the far right of the");
+  display.println("at the far right of");
   display.setCursor(0, 36);
-  display.println("third row.");
+  display.println("the third row.");
   display.display();
   display.setCursor(0, 50);
 
@@ -595,4 +542,39 @@ void clear_gpio(uint pin) {
     gpio_init(pin);
     gpio_set_dir(pin, GPIO_IN);
     gpio_disable_pulls(pin);
+}
+
+void resetWizard(){
+  // A menu button initialization
+  gpio_init(13);
+  gpio_pull_up(13);
+  gpio_set_dir(13, GPIO_IN);
+  
+  absolute_time_t switching_delay_time = make_timeout_time_us(75);
+  sleep_until(switching_delay_time);
+
+  display.clearDisplay();
+
+  if(gpio_get(13) == 0){
+    display.setTextColor(WHITE);
+    display.setCursor(0, 10);
+    display.println("Press the menu button to reset settings.");
+    display.display();
+    
+    // wait until the button released
+    while(gpio_get(13) == 0){
+      delay(50);
+    }
+
+    // wait until the button pressed
+    while(gpio_get(13)){
+      delay(50);
+    }
+
+    // erase settings
+    eraseSettings();
+  }
+  clear_gpio(13);
+
+  return;
 }

@@ -309,6 +309,9 @@ bool MaglevSwitchBoard::isPressed(uint8_t idx){
   }
 
   switch(range){
+    case 0:
+      pressed = false;
+      break;
     case 1:
       switch(isTurning){
         case 0:

@@ -37,7 +37,6 @@ public:
     bool switchGpioInit(void);
     bool rotaryEncoderInit(void);
     bool i2cInit(void);
-    void saveSettings(void);
     void setThreshold(uint16_t* actuationDepth, uint16_t* releaseDepth);
 
 private:
@@ -92,7 +91,5 @@ private:
     uint8_t getTurning(bool direction, bool directionPrev, uint8_t modePrev);
     bool getStaying(uint16_t prev, uint16_t current, uint8_t range, uint8_t rangePrev);
     uint8_t getRange(uint16_t current, uint16_t release_, uint16_t actuation);
-
-    void loadSettings(void);
 };
 #endif
