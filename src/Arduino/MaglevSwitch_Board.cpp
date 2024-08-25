@@ -269,7 +269,7 @@ bool MaglevSwitchBoard::getStaying(uint16_t prev, uint16_t current, uint8_t rang
   if(rangePrev != range){
     return false;
   }
-  else if((isNegative(current, prev - 3)) || (isNegative(current - 3, prev))){
+  else if((isNegative(current, prev - 10)) || (isNegative(current - 10, prev))){
     return true;
   }
   else{

@@ -271,14 +271,12 @@ void updateOled(uint8_t* codes, uint8_t cnt, float values[4], double position, i
 
    for(int i = 0; i < 4; i++){
      display.setCursor(30, (20 + 10 * i));
-     display.println(config.ActuationThresholds[i].getNormalized());
-     // display.println(config.ActuationThresholds[i].getAbsoluted());
+     display.println(config.ActuationThresholds[i].getAbsoluted());
    }
    
    for(int i = 0; i < 4; i++){
      display.setCursor(60, (20 + 10 * i));
-     display.println(config.ReleaseThresholds[i].getNormalized());
-     // display.println(config.ReleaseThresholds[i].getAbsoluted());
+     display.println(config.ReleaseThresholds[i].getAbsoluted());
    }
     
     display.setCursor(100, 20);
