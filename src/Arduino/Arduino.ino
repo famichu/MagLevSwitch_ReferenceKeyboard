@@ -140,12 +140,14 @@ void setup() {
   #if !defined(TEST_MODE)
   hid_init();
   #endif
-  
+
+  #if !defined(TEST_MODE) 
   resetWizard();
 
   if(setting.Initialize() == false) {
     calibrationWizard();
   }
+  #endif
   config = setting.getConfig();
 
   board = new MaglevSwitchBoard(config.HardwareVersion, config.KeymapL1, config.KeymapL2, 
@@ -296,10 +298,12 @@ void updateOled(uint8_t* codes, uint8_t cnt, float values[4], double position, i
     graph.cursor = oledState;
     for (int i = 0; i < NUM_BARS; ++i) {;
       graph.setBarValue(i,  values[i]);
+      #if !defined(TEST_MODE)
       graph.setBarThresholds(
         i, 
         config.ReleaseThresholds[i].getNormalized(),
         config.ActuationThresholds[i].getNormalized());
+      #endif
     }
     graph.draw(display);
     #endif
@@ -438,6 +442,7 @@ void eraseSettings(){
 
 void calibrationWizard(){
   calibrationGpioInit();
+  #if !defined(test_mode)
   config = setting.Initialize(detectHwVersion());
   
   while(gpio_get(13)){
@@ -448,6 +453,9 @@ void calibrationWizard(){
   clear_gpio(23);
   clear_gpio(25);
   clear_gpio(13);
+  #else
+  config = setting.Initialize(101);
+  #endif
   
   setting.Save(config);
 }

@@ -10,6 +10,7 @@ public:
     float currentValue = 0.0;
     float upperThreshold = 0.0;
     float lowerThreshold = 1.0;
+    bool  thresholdEnable = false;
   };
 
   BarGraph(int width, int height, int numBars);
