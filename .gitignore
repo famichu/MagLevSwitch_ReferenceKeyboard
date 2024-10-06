@@ -4,3 +4,7 @@ board/SSD1306_FFC_Adapter/production/*
 board/SSD1306_FFC_Adapter/SSD1306_FFC_Adapter-backups/*
 *fp-info-cache
 *.uf2
+*.zip
+.DS_Store
+fp-lib-table
+*.kicad_sch-bak

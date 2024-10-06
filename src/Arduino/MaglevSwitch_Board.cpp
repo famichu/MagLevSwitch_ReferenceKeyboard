@@ -1,19 +1,30 @@
 #include "MaglevSwitch_Board.h"
 #include <cstring>
 
-MaglevSwitchBoard::MaglevSwitchBoard(){};
+MaglevSwitchBoard::MaglevSwitchBoard()
+  : SW_NUM        (SW_NUM_DEFAULT),
+  DIRECT_SW_NUM   (DIRECT_SW_NUM_DEFAULT),
+  MATRIX_OUT_NUM  (MATRIX_OUT_NUM_DEFAULT),
+  MATRIX_IN_NUM   (MATRIX_IN_NUM_DEFAULT),
+  SW_GPIO         (nullptr),
+  MATRIX_OUT_GPIO (nullptr),
+  MATRIX_IN_GPIO  (nullptr),
+  STATUS_BITS     (nullptr),
+  STATUS_BITS_SW    (nullptr)
+  {};
 
-MaglevSwitchBoard::MaglevSwitchBoard(char* swCodesLayer1, char* swCodesLayer2, 
-  char* mlswCodesLayer1, char* mlswCodesLayer2,  
-  ThresholdData* actuationDepth, ThresholdData* releaseDepth, uint8_t* outCodes){
-
-    memcpy(&swCodesLayer1_, &swCodesLayer1, 21);
-    memcpy(&swCodesLayer2_, &swCodesLayer2, 21);
-    memcpy(&mlswCodesLayer1_, &mlswCodesLayer1, 4);
-    memcpy(&mlswCodesLayer2_, &mlswCodesLayer2, 4);
-    
-    swCodes_  = swCodesLayer1_;
-
+MaglevSwitchBoard::MaglevSwitchBoard(uint16_t version, char* swCodesLayer1, char* swCodesLayer2, 
+  ThresholdData* actuationDepth, ThresholdData* releaseDepth, uint8_t* outCodes)
+  : SW_NUM        ((version == 100) ? SW_NUM_100          : (version == 101) ? SW_NUM_101           : SW_NUM_DEFAULT),
+  DIRECT_SW_NUM   ((version == 100) ? DIRECT_SW_NUM_100   : (version == 101) ? DIRECT_SW_NUM_101    : DIRECT_SW_NUM_DEFAULT),
+  MATRIX_OUT_NUM  ((version == 100) ? MATRIX_OUT_NUM_100  : (version == 101) ? MATRIX_OUT_NUM_101   : MATRIX_OUT_NUM_DEFAULT),
+  MATRIX_IN_NUM   ((version == 100) ? MATRIX_IN_NUM_100   : (version == 101) ? MATRIX_IN_NUM_101    : MATRIX_IN_NUM_DEFAULT),
+  SW_GPIO         ((version == 100) ? SW_GPIO_100         : (version == 101) ? SW_GPIO_101          : nullptr),
+  MATRIX_OUT_GPIO ((version == 100) ? MATRIX_OUT_GPIO_100 : (version == 101) ? MATRIX_OUT_GPIO_101  : nullptr),
+  MATRIX_IN_GPIO  ((version == 100) ? MATRIX_IN_GPIO_100  : (version == 101) ? MATRIX_IN_GPIO_101   : nullptr),
+  STATUS_BITS     ((version == 100) ? STATUS_BITS_100     : (version == 101) ? STATUS_BITS_101      : nullptr), 
+  STATUS_BITS_SW  ((version == 100) ? STATUS_BITS_SW_100  : (version == 101) ? STATUS_BITS_SW_101   : nullptr)
+  {
     outCodes_ = outCodes;
 
     switchGpioInit(); 
@@ -29,35 +40,39 @@ MaglevSwitchBoard::MaglevSwitchBoard(char* swCodesLayer1, char* swCodesLayer2,
     rotaryEncoderInit();
     i2cInit();
 
-    fnSw_   = 0;
-    swNum_  = 0;
+    fnSw_   = -1;
 
-    updateFunc = &MaglevSwitchBoard::update_;
+    switchStatusBits_ = 0;
+    switchStatusBitsPrev_ = 0;
 
-    for(int i = 0; i < SW_NUM; i++){
-      if(swCodes_[i] == FN){ // Make enable Fn key scan if Fn key was used
-        fnSw_ = SW_GPIO[i];
-        updateFunc = &MaglevSwitchBoard::updateWithLayers_;
-      }
-      else{
-        swCodesLayer1_[swNum_]  = swCodesLayer1[i];
-        swCodesLayer2_[swNum_]  = swCodesLayer2[i];
-        swPins_[swNum_] = SW_GPIO[i]; // put io number again other than Fn key.
-        swNum_++;
+    for(uint8_t i = 0; i < SW_NUM; i++){
+      swCodesLayer1_[i] = swCodesLayer1[i];
+      swCodesLayer2_[i] = swCodesLayer2[i];
+      if(swCodesLayer1[i] == FN){
+        fnSw_ = i;
       }
     }
     
-    swCodes_    = swCodesLayer1_;
-    mlswCodes_  = mlswCodesLayer1_;
+    swCodes_      = swCodesLayer1_;
 }
 
 bool MaglevSwitchBoard::switchGpioInit(void){
-    for(int i = 0; i < SW_NUM; i++){
+    for(int i = 0; i < DIRECT_SW_NUM; i++){
       gpio_init(SW_GPIO[i]);
       gpio_pull_up(SW_GPIO[i]);
       gpio_set_dir(SW_GPIO[i], GPIO_IN);
     }
-
+    
+    for(int i = 0; i < MATRIX_IN_NUM; i++){
+      gpio_init(MATRIX_IN_GPIO[i]);
+      gpio_pull_up(MATRIX_IN_GPIO[i]);
+      gpio_set_dir(MATRIX_IN_GPIO[i], GPIO_IN);
+    }
+    for(int i = 0; i < MATRIX_OUT_NUM; i++){
+      gpio_init(MATRIX_OUT_GPIO[i]);
+      gpio_set_dir(MATRIX_OUT_GPIO[i], GPIO_OUT);
+    }
+    
     adc_init();
 
     for(int i = 0; i <MLSW_NUM; i++){
@@ -93,62 +108,120 @@ bool MaglevSwitchBoard::i2cInit(){
 }
 
 bool MaglevSwitchBoard::updateState(void){
-  return (this->*updateFunc)();
+  switchStatusBitsPrev_ = switchStatusBits_;
+  switchStatusBits_ = 0;
+
+  updateEncoderSwitch();
+  updateAnalogueSwitch();
+  updateDigitalSwitch();
+  updateMatrix(); // it takes a 75us * number of rows
+
+  makeSendCodes();
+
+  if(outCodesCnt_ > 0){
+    return true;
+  }
+  return false;
 }
 
-bool MaglevSwitchBoard::updateWithLayers_(void){
-  if(!gpio_get(fnSw_)){
-    swCodes_    = swCodesLayer2_;
-    mlswCodes_  = mlswCodesLayer2_;
-  }
-  else{
-    swCodes_    = swCodesLayer1_;
-    mlswCodes_  = mlswCodesLayer1_;
-  }
-
-  return update_();
-}
-
-bool MaglevSwitchBoard::update_(void){
-  for(int i = 0; i < 6; i++){
-    outCodes_[i] = 0;
-  }
-  
-  outCodesCnt_ = 0;
-
-  for(int i = 0; i < MLSW_NUM; i++){
-    prevDepth_[i] = currentDepth_[i];
-    adc_select_input(adc_num[i]);
-    currentDepth_[i] = adc_read();
-
-    if(isPressed(i)){
-      outCodes_[outCodesCnt_] = mlswCodes_[i];
-      outCodesCnt_++;
-    }
-  }
-  
-  for(int i = 0; i < swNum_; i++){
-    if(!gpio_get(swPins_[i])){
-      outCodes_[outCodesCnt_] = swCodes_[i];
-      outCodesCnt_++;
-
-      if(outCodesCnt_ > 5){
-        break;
-      }
-    }
-  }
-
+void MaglevSwitchBoard::updateEncoderSwitch(){
   if(!gpio_get(ENCODER_SW)){
     encoderSwPressed_ = true;
   }
   else{
     encoderSwPressed_ = false;
   }
+}
 
-  if(outCodesCnt_ > 0){
-    return true;
+void MaglevSwitchBoard::updateAnalogueSwitch(){
+  for(int i = 0; i < MLSW_NUM; i++){
+    prevDepth_[i] = currentDepth_[i];
+    adc_select_input(ADC_NUM[i]);
+    currentDepth_[i] = adc_read();
+
+    if(isPressed(i)){
+      switchStatusBits_ |= STATUS_BITS_MLSW[i];
+    }
   }
-  return false;
+}
+
+void MaglevSwitchBoard::updateDigitalSwitch(){
+  for(int i = 0; i < DIRECT_SW_NUM; i++){
+    if(!gpio_get(SW_GPIO[i])){
+      switchStatusBits_ |= STATUS_BITS_SW[i];
+    }
+  }
+}
+
+void MaglevSwitchBoard::updateMatrix(){
+  for(uint8_t i = 0; i < MATRIX_OUT_NUM; i++){
+    gpio_put(MATRIX_OUT_GPIO[i], 0);
+    absolute_time_t switching_delay_time = make_timeout_time_us(75);
+    sleep_until(switching_delay_time);
+
+    for(uint8_t j = 0; j < MATRIX_IN_NUM; j++){
+      if(!gpio_get(MATRIX_IN_GPIO[j])){
+        switchStatusBits_ |= STATUS_BIT_MATRIX[i][j];
+      }
+    }
+    gpio_put(MATRIX_OUT_GPIO[i], 1);
+  }
+}
+
+void MaglevSwitchBoard::makeSendCodes(){
+  switchLayer();
+
+  for(int i = 0; i < 6; i++){
+    outCodes_[i] = 0;
+  }
+  outCodesCnt_ = 0;
+  
+  uint32_t longPressedSwStatusBits = (switchStatusBits_ & switchStatusBitsPrev_);
+  uint8_t longPressedCnt = countSetBits(longPressedSwStatusBits);
+  
+  /*if(longPressedCnt >= 6){
+    getActiveCodes(longPressedSwStatusBits, 6);
+  }
+  else{
+    getActiveCodes(longPressedSwStatusBits, longPressedCnt);
+    switchStatusBits_ = (switchStatusBits_ & ~longPressedSwStatusBits);
+    */
+    getActiveCodes(switchStatusBits_, 6);
+  //}
+}
+
+void MaglevSwitchBoard::switchLayer(){
+  if(fnSw_ != -1){
+    if((switchStatusBits_ & STATUS_BITS[fnSw_]) != 0){
+      swCodes_ = swCodesLayer2_;
+    }
+    else{
+      swCodes_ = swCodesLayer1_;
+    }
+  }
+}
+
+uint8_t MaglevSwitchBoard::countSetBits(uint32_t n) {
+    uint8_t cnt = 0;
+    while (n) {
+        n &= (n - 1);
+        cnt++;
+    }
+    return cnt;
+}
+
+void MaglevSwitchBoard::getActiveCodes(uint32_t bits, uint8_t distNum){
+    for(uint8_t i = 0; i < SW_NUM; i++){
+      if(i != fnSw_){
+        if(outCodesCnt_ == distNum){
+          break;
+        }
+        if(bits & STATUS_BITS[i]){
+          outCodes_[outCodesCnt_] = swCodes_[i];
+          outCodesCnt_++;
+        }
+      }
+    }
 }
 
 uint16_t MaglevSwitchBoard::currentMaglevValue(uint8_t idx){
@@ -196,7 +269,7 @@ bool MaglevSwitchBoard::getStaying(uint16_t prev, uint16_t current, uint8_t rang
   if(rangePrev != range){
     return false;
   }
-  else if((isNegative(current, prev - 3)) || (isNegative(current - 3, prev))){
+  else if((isNegative(current, prev - 10)) || (isNegative(current - 10, prev))){
     return true;
   }
   else{
@@ -223,18 +296,22 @@ uint8_t MaglevSwitchBoard::getRange(uint16_t current, uint16_t release_, uint16_
 // get whether the switch is pressed based on the state of the switch
 bool MaglevSwitchBoard::isPressed(uint8_t idx){
   bool pressed = false;
-  bool isGoingDown = getDirection(prevDepth_[idx], currentDepth_[idx]);
   uint8_t range = getRange(currentDepth_[idx], 
     releaseDepth_[idx].getAbsoluted(), 
     actuationDepth_[idx].getAbsoluted());
 
+  bool isGoingDown = getDirection(prevDepth_[idx], currentDepth_[idx]);
   bool isStaying = getStaying(prevDepth_[idx], currentDepth_[idx], range, rangePrev_[idx]);
+  
   uint8_t isTurning = 0;
   if(isStaying == false){
     isTurning = getTurning(isGoingDown, isGoingDownPrev_[idx], rangePrev_[idx]);
   }
 
   switch(range){
+    case 0:
+      pressed = false;
+      break;
     case 1:
       switch(isTurning){
         case 0:
