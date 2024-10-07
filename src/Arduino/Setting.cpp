@@ -67,7 +67,7 @@ Config Setting::Initialize(uint16_t hardwareVersion){
     }
     
     for(int i = 0; i < MLSW_NUM; i++){
-        config.ActuationThresholds[i] = ThresholdData((uint16_t)2750, 1400, MLSW_RANGE);
+        config.ActuationThresholds[i] = ThresholdData((uint16_t)2750, MLSW_LOWER_LIMIT, MLSW_RANGE);
         config.ReleaseThresholds[i] = ThresholdData((uint16_t)1490, MLSW_LOWER_LIMIT, MLSW_RANGE);
     }
 

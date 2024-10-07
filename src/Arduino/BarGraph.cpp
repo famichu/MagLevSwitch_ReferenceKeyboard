@@ -16,7 +16,7 @@ void BarGraph::setBarValue(int barIndex, float value) {
 }
 
 void BarGraph::setBarThresholds(int barIndex, float lower, float upper) {
-  bars->thresholodEnable = true;
+  bars->thresholdEnable = true;
   if (barIndex >= 0 && barIndex < numBars) {
     bars[barIndex].lowerThreshold = lower;
     bars[barIndex].upperThreshold = upper;
@@ -37,7 +37,7 @@ void BarGraph::draw(Adafruit_SSD1306& display) {
     display.fillRect(drawOffsetX + arrowWidth + 1, 1, barWidth - 3, barHeight - 1, SSD1306_INVERSE);
 
     // 閾値の描画
-    if(bars->thresholodEnable == true){
+    if(bars->thresholdEnable == true){
       int upperY = 1 + (1.0 - bars[i].upperThreshold) * screenHeight;
       int lowerY = -1 + (1.0 - bars[i].lowerThreshold) * screenHeight;
 
