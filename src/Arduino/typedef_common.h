@@ -9,7 +9,7 @@ const uint8_t SW_GPIO_DEFAULT         = 0;
 const uint8_t MATRIX_OUT_GPIO_DEFAULT = 0;
 const uint8_t MATRIX_IN_GPIO_DEFAULT  = 0;
 
-const char FN = 0xFF;
+const char FN = 0x00;
 const uint8_t MLSW_NUM = 4;
 
 const uint32_t STATUS_BIT_SW1   = 0b0000000000000000000000000001;

@@ -8,3 +8,4 @@ board/SSD1306_FFC_Adapter/SSD1306_FFC_Adapter-backups/*
 .DS_Store
 fp-lib-table
 *.kicad_sch-bak
+src/Arduino/build/*

@@ -74,6 +74,9 @@ void setup() {
   #ifndef DEMO_MODE
   hid_init();
   #endif
+  #ifdef DEMO_MODE
+  eraseSettings();
+  #endif
 
   resetWizard();
 
