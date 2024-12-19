@@ -1,3 +1,6 @@
+#ifndef TYPEDEF_COMMON_H
+#define TYPEDEF_COMMON_H
+
 const uint8_t SW_NUM_DEFAULT          = 0;
 const uint8_t DIRECT_SW_NUM_DEFAULT   = 0;
 const uint8_t MATRIX_OUT_NUM_DEFAULT  = 0;
@@ -58,3 +61,5 @@ const uint32_t STATUS_BITS_MLSW[] = {
 const uint8_t ENCODER_A   = 12;
 const uint8_t ENCODER_B   = 14;
 const uint8_t ENCODER_SW  = 13;
+
+#endif
