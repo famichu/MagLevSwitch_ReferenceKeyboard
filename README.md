@@ -48,24 +48,31 @@ This arrows you to order the PCBA without selectiong individual partsPCBA withou
 
 ## Assembly
 - 1. Solder all devices.
+    
 - 2. Insert switches through a top plate.
 <img src="./img/assembly_2.png" width="500px" a="Step2">
-- 3. Place the bottom switch cap onto the bottom case.
+
+- 3. Place the bottom switch cap onto the bottom case (Insert nuts into holes on the bottom plate if you print it by yourself.).
 <img src="./img/assembly_3.png" width="500px" a="Step3">
-    Insert nuts into holes on the bottom plate if you print it by yourself.
+
 - 4. Fix the PCB with screws.
 <img src="./img/assembly_4.png" width="500px" a="Step4">
-- 5. Insert an OLED module with a flex PCB into the top case.
-    Insert nuts into holes on the top plate if you print it by yourself.
+
+- 5. Insert an OLED module with a flex PCB into the top case (Insert nuts into holes on the top plate if you print it by yourself).
+
 - 6. Connect the flex-PCB with the main PCB.
 <img src="./img/assembly_6.png" width="500px" a="Step6">
+
 - 7. Close the top and bottom cases with screws.
 <img src="./img/assembly_7.png" width="500px" a="Step7">
+
 - 8. Stick rubber feets.
 <img src="./img/assembly_8.png" width="500px" a="Step8">
+
 - 9. Install keycaps and a knob.
 <img src="./img/assembly_9.png" width="500px" a="Step9">
-- 10 Finish!
+
+- 10. Finish!
 <img src="./img/assembly_10.png" width="500px" a="Step10">
 
 # Directory configuration
