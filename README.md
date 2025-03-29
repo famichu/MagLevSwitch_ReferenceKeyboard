@@ -44,7 +44,7 @@ Use FFF 3D printers to print shell parts.
 
 ## PCB
 I had manufactured at JLCPCB. The main PCB in this repository has an LCSC number as well.
-This arrows you to order the PCBA without selectiong individual partsPCBA without parts.
+This allows you to order the PCBA without selecting individual devices.
 
 ## Assembly
 - 1. Solder all devices.
